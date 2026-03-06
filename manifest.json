@@ -1,0 +1,25 @@
+{
+  "name": "Прайс-менеджер",
+  "short_name": "Прайсы",
+  "description": "Мониторинг и управление прайс-листами",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#1e1e2e",
+  "theme_color": "#3B6FD4",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
