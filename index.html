@@ -23,6 +23,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+/* PWA: центрирование логотипа в свёрнутом меню */
+.app-sidebar.collapsed .sidebar-brand {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0;
+}
+.app-sidebar.collapsed .sidebar-brand-icon {
+  margin: 0 auto;
+}
+</style>
 </head>
 <body>
 
@@ -122,8 +136,8 @@
       </a>
 
       <!-- PWA: кнопка установки (скрыта по умолчанию) -->
-      <button id="pwaInstallBtn" onclick="pwaInstall()" style="display:none;width:100%;margin-top:4px;padding:8px 10px;background:linear-gradient(135deg,#3B6FD4,#5B8FEF);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;font-size:12px;font-weight:600;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-        <svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <button id="pwaInstallBtn" onclick="pwaInstall()" style="display:none;width:100%;margin-top:4px;padding:8px 10px;background:linear-gradient(135deg,#3B6FD4,#5B8FEF);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;font-size:12px;font-weight:600;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;line-height:1;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <rect x="20" y="25" width="45" height="10" rx="5" fill="white"/>
           <rect x="20" y="45" width="30" height="10" rx="5" fill="white"/>
           <rect x="20" y="65" width="20" height="10" rx="5" fill="white"/>
