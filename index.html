@@ -6,15 +6,13 @@
 <title>Прайс-менеджер</title>
 
 <!-- ═══ PWA ═══ -->
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/pricemanager/manifest.json">
 <meta name="theme-color" content="#3B6FD4">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Прайсы">
-<link rel="apple-touch-icon" href="/icon-192.png">
-
-<!-- Favicon -->
+<link rel="apple-touch-icon" href="/pricemanager/icon-192.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233B6FD4'/%3E%3Cpath d='M5 5h22v6H5zM5 13h14v6H5zM5 21h14v6H5zM21 13h6v14h-6z' fill='white'/%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1773,7 +1771,7 @@
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/pricemanager/sw.js', { scope: '/pricemanager/' })
       .then(reg => {
         console.log('[PWA] Service Worker зарегистрирован:', reg.scope);
         reg.addEventListener('updatefound', () => {
