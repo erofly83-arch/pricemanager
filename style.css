@@ -66,9 +66,9 @@
 body.order-mode .price-clickable::after{content:'🛒 в корзину' !important}
 
 /* ── Qty dialog ─────────────────────────────────────────────────────────── */
-#cartQtyModal{position:fixed;inset:0;display:none;z-index:10030;}
+#cartQtyModal{position:fixed;display:none;z-index:10030;pointer-events:none;right:0;top:0;bottom:0;}
 #cartQtyModal.open{display:block}
-.cart-qty-box{position:fixed;right:24px;top:50%;transform:translateY(-50%);background:var(--surface);border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.18),0 2px 8px rgba(0,0,0,0.08);border:1px solid var(--border);width:460px;overflow:hidden;}
+.cart-qty-box{position:fixed;right:24px;top:50%;transform:translateY(-50%);background:var(--surface);border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,0.18),0 2px 8px rgba(0,0,0,0.08);border:1px solid var(--border);width:460px;overflow:hidden;pointer-events:auto;}
 .cq-header{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--accent);border-bottom:1px solid var(--accent-dark);}
 .cq-header-icon{font-size:15px;opacity:0.9;flex-shrink:0;}
 .cq-supplier{flex:1;font-size:var(--fz-xs);font-weight:600;color:rgba(255,255,255,0.9);text-transform:uppercase;letter-spacing:.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -306,4 +306,3 @@ body.order-mode .price-in-cart::after{content:'✓ в корзине' !important
 #catExclCurrentList .cem-chip-x { background:none;border:none;cursor:pointer;color:var(--accent-dark);font-size:13px;padding:0 2px;line-height:1;opacity:.6;transition:opacity 100ms; }
 #catExclCurrentList .cem-chip-x:hover { opacity:1;color:var(--red); }
 #catExclCurrentList .cem-chip-syns { font-size:10px;color:var(--accent);opacity:.7;font-weight:400; }
-
