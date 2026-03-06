@@ -30,17 +30,6 @@ let barcodeAliasMap=new Map(),synonymsLoaded=false;
     let nameColumn = null;
     let stockColumn = null;
 
-    let transitColumn = null;
-
-    let showTransitColumn = false;
-
-    let customColumns = [];
-
-    let customColData = {};
-
-    let _customColCounter = 0;
-    let _transitDisplayName = 'В пути';
-
     let sortMode = 'default';
 
     const MVS = { ROW_H: 42, OVERSCAN: 30, start: 0, end: 0, ticking: false };
@@ -148,9 +137,7 @@ const PRICE_COL_SYNONYMS = [
 
 const MY_PRICE_FILE_NAME = 'Мой прайс';
 const META_STOCK_KEY = '__meta_stock';
-const META_TRANSIT_KEY = '__meta_transit';
 const STOCK_COL_SYNONYMS = ['остаток', 'остатки', 'наличие', 'склад'];
-const TRANSIT_COL_SYNONYMS = ['в пути', 'впути', 'транзит', 'transit', 'in transit'];
 
 const PRICE_DECIMALS = 1;
 
@@ -394,7 +381,6 @@ function samePrice(a, b) {
         allColumns = [];
         visibleColumns.clear();
         stockColumn = null;
-        transitColumn = null;
         barcodeColumn = null;
         nameColumn = null;
 
@@ -408,7 +394,6 @@ function samePrice(a, b) {
             if (myPriceData && myPriceData.data && myPriceData.data.length > 0) {
                 const myCols = Object.keys(myPriceData.data[0]);
                 stockColumn = myCols.find(c => STOCK_COL_SYNONYMS.some(s => String(c).toLowerCase().includes(s))) || null;
-                transitColumn = myCols.find(c => TRANSIT_COL_SYNONYMS.some(s => String(c).toLowerCase().includes(s))) || null;
             }
         }
 
@@ -420,7 +405,6 @@ function samePrice(a, b) {
 
                     if (colName === fd._bcCol || colName === fd._nameCol) return;
                     if (fileName === MY_PRICE_FILE_NAME && stockColumn && colName === stockColumn) return;
-                    if (fileName === MY_PRICE_FILE_NAME && transitColumn && colName === transitColumn) return;
                     const colKey = `${fileName}|${colName}`;
                     allColumns.push({
                         fileName,
@@ -439,22 +423,13 @@ function samePrice(a, b) {
             visibleColumns.add(META_STOCK_KEY);
         }
 
-        if (showTransitColumn) {
-
-            const transitCol = { fileName: MY_PRICE_FILE_NAME, columnName: 'В пути', displayName: _transitDisplayName, key: META_TRANSIT_KEY, metaType: 'transit' };
-            allColumns.unshift(transitCol);
-            visibleColumns.add(META_TRANSIT_KEY);
-        }
-
         {
-            const meta = allColumns.filter(c => c.metaType && c.metaType !== 'custom');
+            const meta = allColumns.filter(c => c.metaType);
             const myP  = allColumns.filter(c => !c.metaType && c.fileName === MY_PRICE_FILE_NAME);
             const sup  = allColumns.filter(c => !c.metaType && c.fileName !== MY_PRICE_FILE_NAME);
-            const cust = customColumns.map(cc => ({ fileName: MY_PRICE_FILE_NAME, columnName: cc.displayName, displayName: cc.displayName, key: cc.key, metaType: 'custom' }));
             sup.sort((a,b)=>{const o={нал:0,бн:1,other:2};return(o[getColPayGroup(a)]??2)-(o[getColPayGroup(b)]??2);});
-            allColumns = [...meta, ...myP, ...sup, ...cust];
+            allColumns = [...meta, ...myP, ...sup];
         }
-        customColumns.forEach(cc => visibleColumns.add(cc.key));
 }
 
     function toggleColumn(colKey) {
@@ -533,13 +508,6 @@ function samePrice(a, b) {
                         arrStock.push({ val: (stockVal === undefined || stockVal === null) ? '' : stockVal, rowName: currentRowName, originalBarcode: rawBarcode, meta: true });
                     }
 
-                    if (isMyPrice && transitColumn) {
-                        const transitVal = row[transitColumn];
-                        if (!item.values.has(META_TRANSIT_KEY)) item.values.set(META_TRANSIT_KEY, []);
-                        const arrTransit = item.values.get(META_TRANSIT_KEY);
-                        arrTransit.length = 0;
-                        arrTransit.push({ val: (transitVal === undefined || transitVal === null) ? '' : transitVal, rowName: currentRowName, originalBarcode: rawBarcode, meta: true });
-                    }
                 if (currentRowName) {
                     const nameObj = {fileName, name: currentRowName};
                     if (!item.names.some(n => n.fileName === fileName && n.name === currentRowName)) {
@@ -686,22 +654,6 @@ function samePrice(a, b) {
                     item.values.set(META_STOCK_KEY, [{ val: '', rowName: '', originalBarcode: item.barcode, meta: true }]);
                 }
             }
-            if (showTransitColumn) {
-
-                const transitUserVal = customColData[META_TRANSIT_KEY] && customColData[META_TRANSIT_KEY][item.barcode] !== undefined
-                    ? customColData[META_TRANSIT_KEY][item.barcode] : null;
-                if (transitUserVal !== null) {
-                    item.values.set(META_TRANSIT_KEY, [{ val: transitUserVal, rowName: '', originalBarcode: item.barcode, meta: true }]);
-                } else if (!item.values.has(META_TRANSIT_KEY)) {
-                    item.values.set(META_TRANSIT_KEY, [{ val: '', rowName: '', originalBarcode: item.barcode, meta: true }]);
-                }
-            }
-
-            customColumns.forEach(cc => {
-                const savedVal = customColData[cc.key] && customColData[cc.key][item.barcode] !== undefined
-                    ? customColData[cc.key][item.barcode] : '';
-                item.values.set(cc.key, [{ val: savedVal, rowName: '', originalBarcode: item.barcode, meta: true }]);
-            });
 
 return { barcode: item.barcode, packQty, autoDivFactor,
                 names: item.names,
@@ -782,68 +734,6 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         else compactMatchesBtn.classList.remove('active');
         renderTable();
 
-    }
-
-    function toggleTransitColumn() {
-        showTransitColumn = !showTransitColumn;
-        autoDetectColumns();
-        processData();
-        renderTable();
-        updateUI();
-        showToast(showTransitColumn ? '«В пути» добавлена' : '«В пути» скрыта', 'ok');
-    }
-
-    function deleteCustomColumn(colKey) {
-        jeConfirmDialog('Удалить колонку? Все введённые данные будут потеряны.', '🗑 Удаление колонки').then(function(ok) {
-          if (!ok) return;
-          customColumns = customColumns.filter(c => c.key !== colKey);
-          delete customColData[colKey];
-          visibleColumns.delete(colKey);
-          autoDetectColumns();
-          processData();
-          renderTable();
-          updateUI();
-          showToast('Колонка удалена', 'ok');
-        });
-    }
-
-    function editCustomCell(barcode, colKey, cellDiv) {
-        if (cellDiv.querySelector('.custom-cell-input')) return;
-
-        const currentVal = (customColData[colKey] && customColData[colKey][barcode] !== undefined)
-            ? customColData[colKey][barcode] : '';
-        const spanVal = cellDiv.querySelector('.custom-cell-val');
-        const spanBtn = cellDiv.querySelector('.custom-cell-edit-btn');
-        if (spanVal) spanVal.style.display = 'none';
-        if (spanBtn) spanBtn.style.display = 'none';
-        const inp = document.createElement('input');
-        inp.type = 'text';
-        inp.className = 'custom-cell-input';
-        inp.value = currentVal;
-        cellDiv.appendChild(inp);
-        inp.focus();
-        inp.select();
-        const commit = () => {
-            const newVal = inp.value.trim();
-            if (!customColData[colKey]) customColData[colKey] = {};
-            customColData[colKey][barcode] = newVal;
-
-            const item = groupedData.find(i => i.barcode === barcode);
-            if (item) item.values.set(colKey, [{ val: newVal, rowName: '', originalBarcode: barcode, meta: true }]);
-            inp.remove();
-            if (spanVal) {
-                spanVal.style.display = '';
-                const isEmpty = !newVal;
-                spanVal.textContent = isEmpty ? '—' : newVal;
-                spanVal.className = 'custom-cell-val' + (isEmpty ? ' empty' : '');
-            }
-            if (spanBtn) spanBtn.style.display = '';
-        };
-        inp.addEventListener('blur', commit);
-        inp.addEventListener('keydown', e => {
-            if (e.key === 'Enter') { e.preventDefault(); inp.blur(); }
-            if (e.key === 'Escape') { inp.value = currentVal; inp.blur(); }
-        });
     }
 
     // Build category dropdown from top-100 frequent words in all product names
@@ -1014,22 +904,12 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         });
     }
 
-    function copyBarcodeFromPrice(barcode) {
-        if (!navigator.clipboard) return;
-        navigator.clipboard.writeText(String(barcode)).catch(() => {});
-    }
-
     function editColumnName(colKey) {
         const col = allColumns.find(c => c.key === colKey);
         if (!col) return;
         const newName = prompt('Новое название колонки:', col.displayName);
         if (newName && newName.trim() !== '' && newName.trim() !== col.displayName) {
             col.displayName = newName.trim();
-
-            const cc = customColumns.find(c => c.key === colKey);
-            if (cc) cc.displayName = newName.trim();
-
-            if (colKey === META_TRANSIT_KEY) _transitDisplayName = newName.trim();
             updateHiddenColumnsPanel();
             renderTable();
         }
@@ -1046,8 +926,6 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         visibleCols.forEach(col => {
             const _isMyP = !col.metaType && col.fileName === MY_PRICE_FILE_NAME;
             const _isMeta = !!col.metaType;
-            const _isCustom = col.metaType === 'custom';
-            const _isTransit = col.key === META_TRANSIT_KEY;
             const _cL = col.metaType ? col.displayName : col.columnName;
             const _fL = col.metaType ? null : col.fileName;
             const _ck = col.key.replace(/'/g, "\\'");
@@ -1055,8 +933,6 @@ return { barcode: item.barcode, packQty, autoDivFactor,
             if (_isMeta || _isMyP) {
                 _actions += `<div class="col-header-actions">`;
                 _actions += `<button class="col-header-btn" onclick="event.stopPropagation();editColumnName('${_ck}')" title="Переименовать">✏️</button>`;
-                if (_isTransit) _actions += `<button class="col-header-btn col-header-btn--del" onclick="event.stopPropagation();toggleTransitColumn()" title="Скрыть В пути">✕</button>`;
-                if (_isCustom) _actions += `<button class="col-header-btn col-header-btn--del" onclick="event.stopPropagation();deleteCustomColumn('${_ck}')" title="Удалить колонку">✕</button>`;
                 _actions += `</div>`;
             }
             if (_isMyP || _isMeta) {
@@ -1144,7 +1020,7 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         if (showMinPriceMode) {
             const _allPriceNums = [];
             visibleCols.forEach(col => {
-                if (col.metaType && col.metaType !== 'custom') return;
+                if (col.metaType) return;
 
                 const valuesArr = item.values.get(col.key);
                 if (valuesArr) valuesArr.forEach(vObj => {
@@ -1159,18 +1035,8 @@ return { barcode: item.barcode, packQty, autoDivFactor,
             const valuesArr = item.values.get(col.key);
             let cellContent = '—';
             if (col.metaType) {
-                const _isEditable = col.metaType === 'custom' || col.key === META_TRANSIT_KEY;
                 const _mv = (valuesArr && valuesArr.length > 0) ? valuesArr[0].val : '';
                 const _mvStr = (_mv === undefined || _mv === null) ? '' : String(_mv).trim();
-                if (_isEditable) {
-
-                    const _ck = col.key.replace(/'/g, "\'");
-                    const _bc = item.barcode.replace(/'/g, "\'");
-                    const _display = _mvStr || '';
-                    const _isEmpty = !_display;
-                    html += `<td><div class="custom-cell" onclick="editCustomCell('${_bc}','${_ck}',this)"><span class="custom-cell-val${_isEmpty?' empty':''}">${_isEmpty?'—':_display}</span><span class="custom-cell-edit-btn">✎</span></div></td>`;
-                    return;
-                }
                 if (!_mvStr) {
                     cellContent = '—';
                 } else {
@@ -1210,17 +1076,19 @@ return { barcode: item.barcode, packQty, autoDivFactor,
                     const _divF = vObj._autoDiv ? (vObj._autoDivFactor || item.packQty || 1) : 1;
                     const _cMin = (_cellMin !== null && numValue !== null) ? _cellMin : 0;
                     const _cMax = (_cellMax !== null && numValue !== null) ? _cellMax : 0;
-                    const _inCart = window._cartedKeys && window._cartedKeys.has(barcodeForCopy + '|' + col.key);
+                    // Key includes vIndex so two prices in the same column are independent cart lines
+                    const _cartKey = barcodeForCopy + '|' + col.key + '|' + vIndex;
+                    const _inCart = window._cartedKeys && window._cartedKeys.has(_cartKey);
                     const _cartCls = _inCart ? ' price-in-cart' : '';
                     let innerHtml;
                     if (isAbsMin) {
-                        innerHtml = `<span class="price-val is-abs-min price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax})" title="Минимальная цена в строке">${displayValue}</span>${autoBadge}`;
+                        innerHtml = `<span class="price-val is-abs-min price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax},0,${vIndex})" title="Минимальная цена в строке">${displayValue}</span>${autoBadge}`;
                     } else if (isMin) {
-                        innerHtml = `<span class="price-val is-min price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax})">${displayValue}</span>${autoBadge}`;
+                        innerHtml = `<span class="price-val is-min price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax},0,${vIndex})">${displayValue}</span>${autoBadge}`;
                     } else if (isMax && numValue) {
-                        innerHtml = `<span class="price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax},1)">${displayValue}</span>${autoBadge}<div class="div-wrapper" title="Цена указана за блок?"><div class="div-icon">÷</div><select class="div-select" onchange="dividePrice('${item.barcode}','${col.key}',${vIndex},this.value);this.value=''"><option value="" disabled selected>÷</option>${_DIV_OPTIONS}</select></div>`;
+                        innerHtml = `<span class="price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax},1,${vIndex})">${displayValue}</span>${autoBadge}<div class="div-wrapper" title="Цена указана за блок?"><div class="div-icon">÷</div><select class="div-select" onchange="dividePrice('${item.barcode}','${col.key}',${vIndex},this.value);this.value=''"><option value="" disabled selected>÷</option>${_DIV_OPTIONS}</select></div>`;
                     } else {
-                        innerHtml = `<span class="price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax})">${displayValue}</span>${autoBadge}`;
+                        innerHtml = `<span class="price-clickable${_cartCls}" onclick="priceClick('${barcodeForCopy}','${col.key}','${displayValue}','${item.barcode}',${_divF},${_cMin},${_cMax},0,${vIndex})">${displayValue}</span>${autoBadge}`;
                     }
                     cellContent += `<div class="value-variant">${innerHtml}</div>`;
                 });
@@ -1394,11 +1262,10 @@ return { barcode: item.barcode, packQty, autoDivFactor,
 
     async function generateExcel(mode) {
     try {
-    const _exMeta=allColumns.filter(c=>c.metaType&&c.metaType!=='custom'&&visibleColumns.has(c.key));
+    const _exMeta=allColumns.filter(c=>c.metaType&&visibleColumns.has(c.key));
     const _exMyP =allColumns.filter(c=>!c.metaType&&c.fileName===MY_PRICE_FILE_NAME&&visibleColumns.has(c.key));
     const _exSup =allColumns.filter(c=>!c.metaType&&c.fileName!==MY_PRICE_FILE_NAME&&visibleColumns.has(c.key));
-    const _exCust=allColumns.filter(c=>c.metaType==='custom'&&visibleColumns.has(c.key));
-    const excelCols=[..._exMeta,..._exMyP,..._exSup,..._exCust];
+    const excelCols=[..._exMeta,..._exMyP,..._exSup];
     const fileNames=allFilesData.map(f=>f.fileName);
     const hasMyPrice=!!myPriceData;
     const myPriceFileName=hasMyPrice?MY_PRICE_FILE_NAME:null;
@@ -1510,7 +1377,7 @@ return { barcode: item.barcode, packQty, autoDivFactor,
 
                 const _allNums=[];
                 excelCols.forEach((col,idx)=>{
-                    if(col.metaType&&col.metaType!=='custom') return;
+                    if(col.metaType) return;
                     const va=item.values.get(col.key);
                     if(va) va.forEach(vObj=>{
                         const n=parseFloat(String(vObj.val).replace(/[^0-9.,]/g,'').replace(',','.'));
@@ -1649,11 +1516,6 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         barcodeColumn = null;
         nameColumn = null;
         stockColumn = null;
-        transitColumn = null;
-        showTransitColumn = false;
-        customColumns = [];
-        customColData = {};
-        _transitDisplayName = 'В пути';
         sortMode = 'default';
         compactMatches = true;
         searchQuery = '';
@@ -1772,6 +1634,9 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         // ── Сессия IndexedDB ──────────────────────────────────────────────────────
         if (typeof window._pmDB_clearSession === 'function') window._pmDB_clearSession();
         try { localStorage.removeItem('_pm_brandDB_session'); } catch(e) {}
+
+        // ── Корзина ───────────────────────────────────────────────────────────────
+        if (typeof window.clearCart === 'function') window.clearCart(true);
     }
     async function downloadCurrentSynonyms(){
 
@@ -1795,12 +1660,8 @@ return { barcode: item.barcode, packQty, autoDivFactor,
     window.downloadCurrentSynonyms = downloadCurrentSynonyms;
     window.toggleColumn = toggleColumn;
     window.copyBarcode = copyBarcode;
-    window.copyBarcodeFromPrice = copyBarcodeFromPrice;
     window.dividePrice = dividePrice;
     window.editColumnName = editColumnName;
-    window.editCustomCell = editCustomCell;
-    window.toggleTransitColumn = toggleTransitColumn;
-    window.deleteCustomColumn = deleteCustomColumn;
 
     window._generateExcel = generateExcel;
     window._pmApp = {
@@ -1908,7 +1769,7 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         toast._timer = setTimeout(() => {
             toast.style.opacity = '0';
             toast.style.transform = 'translateY(20px)';
-        }, 12000);
+        }, 4000);
     }
 
 
@@ -6937,7 +6798,7 @@ document.addEventListener('click', function(e) {
     var s = new Set();
     Object.values(cart).forEach(function(sup) {
       sup.items.forEach(function(it) {
-        if (it.barcode && it.colKey) s.add(it.barcode + '|' + it.colKey);
+        if (it.barcode && it.colKey) s.add(it.barcode + '|' + it.colKey + '|' + (it.vIndex || 0));
       });
     });
     window._cartedKeys = s;
@@ -7228,12 +7089,13 @@ document.addEventListener('click', function(e) {
   };
 
   // ---- price click handler ----
-  window.priceClick = function(supplierBarcode, colKey, priceDisplay, mainBarcode, divFactor, cellMin, cellMax, hasDivBtn) {
+  window.priceClick = function(supplierBarcode, colKey, priceDisplay, mainBarcode, divFactor, cellMin, cellMax, hasDivBtn, vIndex) {
     if (!orderMode) {
       // original behavior: copy barcode
       if (navigator.clipboard) navigator.clipboard.writeText(String(supplierBarcode)).catch(function(){});
       return;
     }
+    vIndex = (vIndex !== undefined && vIndex !== null) ? parseInt(vIndex, 10) : 0;
     divFactor = (divFactor && divFactor > 1) ? parseInt(divFactor, 10) : 1;
     var originalDivFactor = divFactor; // сохраняем ДО детекции — нужно для предупреждения
     cellMin = parseFloat(cellMin) || 0;
@@ -7262,7 +7124,7 @@ document.addEventListener('click', function(e) {
         _detectedPack = { confidence: 'exact', qty: divFactor, candidates: [divFactor], source: 'myprice' };
       }
     }
-    _cartPending = { supplierBarcode: supplierBarcode, colKey: colKey, priceDisplay: priceDisplay,
+    _cartPending = { supplierBarcode: supplierBarcode, colKey: colKey, vIndex: vIndex, priceDisplay: priceDisplay,
       mainBarcode: mainBarcode, supplierName: supplierName, itemName: itemName, divFactor: divFactor,
       _packSource: _detectedPack.source, _packConfidence: _detectedPack.confidence,
       _packCandidates: _detectedPack.candidates || [] };
@@ -7270,7 +7132,7 @@ document.addEventListener('click', function(e) {
     var existQty = 0;
     if (cart[supplierName]) {
       // Fix: match by barcode AND colKey — same product can have multiple price columns
-      var ex = cart[supplierName].items.find(function(i){ return i.barcode === supplierBarcode && i.colKey === colKey; });
+      var ex = cart[supplierName].items.find(function(i){ return i.barcode === supplierBarcode && i.colKey === colKey && (i.vIndex || 0) === vIndex; });
       if (ex) {
         // Fix: use the STORED divFactor of the existing item, not the freshly detected one.
         // If the item was added with manual input (storedDivFactor=undefined), exDf=1 and
@@ -7392,14 +7254,14 @@ document.addEventListener('click', function(e) {
     if (!cart[p.supplierName]) cart[p.supplierName] = { items: [] };
     // Fix: match by BOTH barcode and colKey so the same product with two price columns
     // (e.g. нал/безнал) creates two independent cart lines instead of overwriting each other.
-    var ex = cart[p.supplierName].items.find(function(i){ return i.barcode === p.supplierBarcode && i.colKey === p.colKey; });
+    var ex = cart[p.supplierName].items.find(function(i){ return i.barcode === p.supplierBarcode && i.colKey === p.colKey && (i.vIndex || 0) === (p.vIndex || 0); });
     if (ex) {
       ex.qty = qtyToStore;
       ex.price = p.priceDisplay;
       ex.divFactor = storedDivFactor;
       ex.mainBarcode = p.mainBarcode || p.supplierBarcode;
     } else {
-      cart[p.supplierName].items.push({ barcode: p.supplierBarcode, mainBarcode: p.mainBarcode || p.supplierBarcode, name: p.itemName, price: p.priceDisplay, colKey: p.colKey, qty: qtyToStore, divFactor: storedDivFactor });
+      cart[p.supplierName].items.push({ barcode: p.supplierBarcode, mainBarcode: p.mainBarcode || p.supplierBarcode, name: p.itemName, price: p.priceDisplay, colKey: p.colKey, vIndex: p.vIndex || 0, qty: qtyToStore, divFactor: storedDivFactor });
     }
     // Bug fix: save scroll BEFORE any DOM changes (closeCartQtyModal / mvsRender
     // can trigger reflow that resets scrollTop in some browsers)
@@ -7641,9 +7503,6 @@ document.addEventListener('click', function(e) {
     });
   }
 
-  // ---- divisibility check ----
-  window.checkCartQtyDivisible = function() { /* select always has valid values */ };
-
   // ---- checkbox helpers ----
   window.cartToggleCheck = function(cb) {
     var supName = cb.getAttribute('data-sup');
@@ -7855,15 +7714,19 @@ document.addEventListener('click', function(e) {
     if (typeof showToast === 'function') showToast('↩ Замена на мой прайс отменена', 'ok');
   };
 
-  window.clearCart = function() {
+  window.clearCart = function(silent) {
     if (!Object.keys(cart).length) return;
-    jeConfirmDialog('Очистить всю корзину?', '🗑 Очистка корзины').then(function(ok) {
-      if (!ok) return;
+    function _doClear() {
       cart = {};
       saveCart();
       updateCartBadge();
       closeCartModal();
       if (typeof _mvsRenderVisible === 'function') _mvsRenderVisible();
+    }
+    if (silent) { _doClear(); return; }
+    jeConfirmDialog('Очистить всю корзину?', '🗑 Очистка корзины').then(function(ok) {
+      if (!ok) return;
+      _doClear();
     });
   };
 
