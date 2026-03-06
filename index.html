@@ -100,6 +100,12 @@
       <button class="btn unified-unsaved-save-btn" onclick="downloadCurrentSynonyms()" title="Скачать файл памяти (JSON)">💾 Сохранить</button>
       <span class="unified-unsaved-hint">Не забудьте сохранить</span>
     </div>
+    <!-- PWA Install Button (скрыт по умолчанию) -->
+    <button id="pwaInstallBtn" onclick="pwaInstall()" style="display:none;width:100%;margin-top:10px;padding:8px 10px;background:linear-gradient(135deg,#3B6FD4,#5B8FEF);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;font-size:12px;font-weight:600;display:none;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v13M7 11l5 5 5-5"/><path d="M3 19h18v2H3z"/></svg>
+      Установить приложение
+    </button>
+
     <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
       <a href="tel:+79130998250" class="sidebar-contact-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1767,19 +1773,52 @@
 
 <script src="app.js"></script>
 
-<!-- ═══ PWA: регистрация Service Worker ═══ -->
+<!-- ═══ PWA ═══ -->
 <script>
+// ── Установка PWA ──────────────────────────────────────────
+let _pwaPrompt = null;
+
+// Скрываем кнопку если уже запущено как PWA (standalone)
+const isStandalone =
+  window.matchMedia('(display-mode: standalone)').matches ||
+  window.navigator.standalone === true;
+
+if (!isStandalone) {
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    _pwaPrompt = e;
+    const btn = document.getElementById('pwaInstallBtn');
+    if (btn) btn.style.display = 'flex';
+  });
+}
+
+window.pwaInstall = async function () {
+  if (!_pwaPrompt) return;
+  _pwaPrompt.prompt();
+  const { outcome } = await _pwaPrompt.userChoice;
+  if (outcome === 'accepted') {
+    const btn = document.getElementById('pwaInstallBtn');
+    if (btn) btn.style.display = 'none';
+    _pwaPrompt = null;
+  }
+};
+
+window.addEventListener('appinstalled', () => {
+  const btn = document.getElementById('pwaInstallBtn');
+  if (btn) btn.style.display = 'none';
+  _pwaPrompt = null;
+});
+
+// ── Service Worker ─────────────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/pricemanager/sw.js', { scope: '/pricemanager/' })
       .then(reg => {
         console.log('[PWA] Service Worker зарегистрирован:', reg.scope);
         reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              showUpdateToast();
-            }
+          const w = reg.installing;
+          w.addEventListener('statechange', () => {
+            if (w.state === 'installed' && navigator.serviceWorker.controller) showUpdateToast();
           });
         });
       })
@@ -1788,20 +1827,14 @@ if ('serviceWorker' in navigator) {
 }
 
 function showUpdateToast() {
-  const toast = document.createElement('div');
-  toast.style.cssText = [
-    'position:fixed','bottom:24px','left:50%','transform:translateX(-50%)',
-    'background:#3B6FD4','color:#fff','padding:12px 20px','border-radius:10px',
-    'box-shadow:0 4px 20px rgba(0,0,0,0.3)','z-index:99999',
-    'display:flex','align-items:center','gap:12px',
-    'font-family:Inter,sans-serif','font-size:14px'
-  ].join(';');
-  toast.innerHTML =
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#3B6FD4;color:#fff;padding:12px 20px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:99999;display:flex;align-items:center;gap:12px;font-family:Inter,sans-serif;font-size:14px';
+  t.innerHTML =
     '<span>🔄 Доступна новая версия</span>' +
     '<button onclick="location.reload()" style="background:#fff;color:#3B6FD4;border:none;border-radius:6px;padding:4px 12px;cursor:pointer;font-weight:600;font-size:13px">Обновить</button>' +
     '<button onclick="this.parentElement.remove()" style="background:transparent;color:#fff;border:none;cursor:pointer;font-size:18px;line-height:1;padding:0 4px">×</button>';
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 15000);
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 15000);
 }
 </script>
 </body>
