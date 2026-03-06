@@ -80,6 +80,9 @@ let barcodeAliasMap=new Map(),synonymsLoaded=false;
     const hiddenColumnsList = document.getElementById('hiddenColumnsList');
     const tableContainer = document.getElementById('tableContainer');
     const _tableContainerInitialHTML = tableContainer ? tableContainer.innerHTML : '';
+    // Save monitor instruction HTML before tableContainer gets replaced by data
+    const _monitorEmptyStateEl = document.getElementById('monitorEmptyState');
+    const _monitorInstrHTML = _monitorEmptyStateEl ? _monitorEmptyStateEl.innerHTML : '';
 
     const BARCODE_SYNONYMS = [
         'штрих-код', 'штрихкод', 'barcode', 'Штрих-код', 'Штрихкод', 'Barcode',
@@ -7974,7 +7977,23 @@ document.addEventListener('click', function(e) {
       if (adv)  body.appendChild(adv.cloneNode(true));
       if (hint) body.appendChild(hint.cloneNode(true));
     } else if (pane === 'monitor') {
-      sourceEl = document.getElementById('monitorEmptyState');
+      // monitorEmptyState is destroyed when data loads — use saved copy
+      var liveEl = document.getElementById('monitorEmptyState');
+      if (liveEl) {
+        sourceEl = liveEl;
+      } else if (_monitorInstrHTML) {
+        body.innerHTML = _monitorInstrHTML;
+        title.textContent = TITLES['monitor'];
+        modal.classList.add('open');
+        document.documentElement.style.overflow = 'hidden';
+        return;
+      } else {
+        body.innerHTML = '<p style="color:var(--text-muted);padding:20px;">Инструкция недоступна — загрузите данные, чтобы увидеть справку.</p>';
+        title.textContent = TITLES['monitor'];
+        modal.classList.add('open');
+        document.documentElement.style.overflow = 'hidden';
+        return;
+      }
     } else if (pane === 'matcher') {
       sourceEl = document.getElementById('matcherEmpty');
     } else if (pane === 'jsoneditor') {

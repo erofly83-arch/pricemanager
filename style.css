@@ -421,10 +421,10 @@ body.order-mode .price-in-cart::after{content:'✓ в корзине' !important
 .help-btn:hover:not(:disabled){background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
 
 /* ═══ HELP MODAL ═══ */
-#helpModal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:flex-start;justify-content:flex-end;padding:16px;z-index:11000;opacity:0;pointer-events:none;transition:opacity 180ms ease}
-#helpModal.open{opacity:1;pointer-events:auto}
-.help-modal-box{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-modal);border:1px solid var(--border);width:min(680px,96vw);max-height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:hidden;transform:translateX(24px);transition:transform 180ms ease}
-#helpModal.open .help-modal-box{transform:translateX(0)}
+#helpModal{position:fixed;inset:0;background:rgba(0,0,0,0);display:none;align-items:flex-start;justify-content:flex-end;padding:16px;z-index:11000;transition:background 180ms ease}
+#helpModal.open{display:flex;background:rgba(0,0,0,0.45)}
+.help-modal-box{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-modal);border:1px solid var(--border);width:min(680px,96vw);max-height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:hidden;transform:translateX(32px);opacity:0;transition:transform 220ms ease,opacity 220ms ease}
+#helpModal.open .help-modal-box{transform:translateX(0);opacity:1}
 .help-modal-header{background:var(--surface-alt);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
 .help-modal-title-row{display:flex;align-items:center;gap:8px;font-size:var(--fz-base);font-weight:700;color:var(--text-primary);min-width:0}
 .help-modal-icon{font-size:16px;flex-shrink:0}
