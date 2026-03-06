@@ -1,5 +1,60 @@
 const BRAND_CONFIG_SAVED = {};
 
+// ===== GLOBAL ERROR LOGGER =====
+(function() {
+  var _errs = [];
+  function _fmt(e, ctx) {
+    var ts = new Date().toLocaleTimeString('ru');
+    var msg = ctx ? '[' + ctx + '] ' : '';
+    if (e && e.message) msg += e.message;
+    else msg += String(e);
+    var stack = (e && e.stack) ? e.stack.split('\n').slice(0,4).join('\n') : '';
+    return { ts: ts, msg: msg, stack: stack, full: ts + ' | ' + msg + (stack ? '\n' + stack : '') };
+  }
+  function _push(e, ctx) {
+    _errs.push(_fmt(e, ctx));
+    var cnt = document.getElementById('errLogCount');
+    var btn = document.getElementById('errLogBtn');
+    if (cnt) cnt.textContent = _errs.length;
+    if (btn) btn.style.display = 'flex';
+    _renderList();
+  }
+  function _renderList() {
+    var list = document.getElementById('errLogList');
+    if (!list) return;
+    if (!_errs.length) { list.innerHTML = '<span style="color:#64748b;font-family:\'Inter\',sans-serif;">Ошибок нет</span>'; return; }
+    list.innerHTML = _errs.slice().reverse().map(function(e) {
+      return '<div style="border:1px solid #7f1d1d;border-radius:6px;padding:8px 10px;background:#450a0a;">'
+        + '<div style="color:#fca5a5;margin-bottom:3px;">' + e.ts + ' &mdash; ' + _hesc(e.msg) + '</div>'
+        + (e.stack ? '<pre style="margin:0;color:#94a3b8;font-size:10px;white-space:pre-wrap;">' + _hesc(e.stack) + '</pre>' : '')
+        + '</div>';
+    }).join('');
+  }
+  function _hesc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  window.onerror = function(msg, src, line, col, err) {
+    _push(err || { message: msg + ' (' + src + ':' + line + ')' }, 'global');
+  };
+  window.addEventListener('unhandledrejection', function(ev) {
+    _push(ev.reason || { message: 'Unhandled promise rejection' }, 'promise');
+  });
+  window._logErr = function(e, ctx) { _push(e, ctx); };
+  window.openErrLog  = function() { _renderList(); document.getElementById('errLogModal').style.display = 'flex'; };
+  window.closeErrLog = function() { document.getElementById('errLogModal').style.display = 'none'; };
+  window.copyErrLog  = function() {
+    var txt = _errs.map(function(e){ return e.full; }).join('\n---\n');
+    navigator.clipboard && navigator.clipboard.writeText(txt).then(function(){ if(typeof showToast==='function') showToast('Скопировано', 'ok'); });
+  };
+  window.clearErrLog = function() {
+    _errs = [];
+    var btn = document.getElementById('errLogBtn');
+    var cnt = document.getElementById('errLogCount');
+    if (btn) btn.style.display = 'none';
+    if (cnt) cnt.textContent = '0';
+    _renderList();
+  };
+})();
+
 
 let barcodeAliasMap=new Map(),synonymsLoaded=false;
 
@@ -7090,6 +7145,7 @@ document.addEventListener('click', function(e) {
 
   // ---- price click handler ----
   window.priceClick = function(supplierBarcode, colKey, priceDisplay, mainBarcode, divFactor, cellMin, cellMax, hasDivBtn, vIndex) {
+    try {
     if (!orderMode) {
       // original behavior: copy barcode
       if (navigator.clipboard) navigator.clipboard.writeText(String(supplierBarcode)).catch(function(){});
@@ -7232,6 +7288,7 @@ document.addEventListener('click', function(e) {
       if (mi) { mi.focus({ preventScroll: true }); mi.select(); }
     }, 40);
     document.getElementById('cartQtyModal').classList.add('open');
+    } catch(e) { window._logErr(e, 'priceClick'); if(typeof showToast==='function') showToast('Ошибка корзины — см. журнал ⚠️', 'err'); }
   };
 
   window.closeCartQtyModal = function() {
@@ -7239,6 +7296,7 @@ document.addEventListener('click', function(e) {
     _cartPending = null;
   };
   function _doAddToCart(qtyInput) {
+    try {
     var p = _cartPending;
     if (!p) return; // safety guard — should not happen but prevents silent freeze
     var divFactor = p.divFactor || 1;
@@ -7287,6 +7345,7 @@ document.addEventListener('click', function(e) {
       toastMsg += ' — ' + qtyToStore + ' шт.';
     }
     if (typeof showToast === 'function') showToast(toastMsg, 'ok');
+    } catch(e) { window._logErr(e, '_doAddToCart'); if(typeof showToast==='function') showToast('Ошибка добавления в корзину — см. журнал ⚠️', 'err'); }
   }
 
   window.confirmCartQty = function() {

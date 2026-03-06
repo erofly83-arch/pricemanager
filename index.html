@@ -116,7 +116,26 @@
         Telegram
       </a>
 <!-- PWA: кнопка установки (скрыта по умолчанию) -->
-<button id="pwaInstallBtn" onclick="pwaInstall()" onmouseout="this.style.opacity='1'" onmouseover="this.style.opacity='.85'" style="display:none;width:100%;margin-top:4px;padding:8px 10px;background:linear-gradient(135deg,#3B6FD4,#5B8FEF);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;font-size:12px;font-weight:600;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;line-height:1;">
+<button id="errLogBtn" onclick="window.openErrLog()" style="display:none;width:100%;margin-top:4px;padding:8px 10px;background:#7f1d1d;color:#fca5a5;border:1px solid #991b1b;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;line-height:1;" title="Открыть журнал ошибок">
+  <span style="font-size:15px;">⚠️</span> Ошибки (<span id="errLogCount">0</span>)
+</button>
+<!-- Модальное окно журнала ошибок -->
+<div id="errLogModal" onclick="if(event.target===this)window.closeErrLog()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99999;align-items:center;justify-content:center;">
+  <div style="background:#1e293b;border:1px solid #7f1d1d;border-radius:12px;padding:20px;max-width:700px;width:95%;max-height:80vh;display:flex;flex-direction:column;gap:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-family:'Inter',sans-serif;font-weight:700;color:#fca5a5;font-size:15px;">⚠️ Журнал ошибок сессии</span>
+      <div style="display:flex;gap:8px;">
+        <button onclick="window.copyErrLog()" style="padding:4px 12px;border-radius:6px;border:1px solid #475569;background:#334155;color:#e2e8f0;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;">📋 Скопировать</button>
+        <button onclick="window.clearErrLog()" style="padding:4px 12px;border-radius:6px;border:1px solid #475569;background:#334155;color:#e2e8f0;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;">🗑 Очистить</button>
+        <button onclick="window.closeErrLog()" style="padding:4px 12px;border-radius:6px;border:1px solid #475569;background:#334155;color:#e2e8f0;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;">✕</button>
+      </div>
+    </div>
+    <div id="errLogList" style="overflow-y:auto;flex:1;font-family:'Courier New',monospace;font-size:11px;color:#e2e8f0;display:flex;flex-direction:column;gap:6px;">
+      <span style="color:#64748b;font-family:'Inter',sans-serif;">Ошибок нет</span>
+    </div>
+  </div>
+</div>
+<button id="pwaInstallBtn" onclick="pwaInstall()" onmouseout="this.style.opacity='1'" onmouseover="this.style.opacity='.85'" style="display:none;width:100%;margin-top:4px;padding:8px 10px;background:linear-gradient(135deg,#3B6FD4,#5B8FEF);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;align-items:center;justify-content:center;gap:7px;transition:opacity .2s;line-height:1;">
 <svg height="20" style="flex-shrink:0;" viewbox="0 0 100 100" width="20" xmlns="http://www.w3.org/2000/svg">
 <rect fill="white" height="10" rx="5" width="45" x="20" y="25"></rect>
 <rect fill="white" height="10" rx="5" width="30" x="20" y="45"></rect>
