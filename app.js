@@ -7200,7 +7200,7 @@ document.addEventListener('click', function(e) {
     // order mode: open qty dialog
     var col = null;
     if (typeof allColumns !== 'undefined') col = allColumns.find(function(c){ return c.key === colKey; });
-    var supplierName = col ? (col.displayName || col.fileName || colKey) : colKey;
+    var supplierName = col ? (col.fileName || colKey) : colKey;
     // get item name + detect pack size for items without explicit divFactor
     var itemName = '';
     var _detectedPack = { confidence: 'none', qty: 1, candidates: [], source: 'none' };
