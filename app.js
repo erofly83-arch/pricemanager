@@ -7946,7 +7946,68 @@ document.addEventListener('click', function(e) {
 
     window._cartHasItems = function(){ return Object.keys(cart).length > 0; };
 
-  // close on overlay click (handled via inline onclick on the elements)
+// close on overlay click (handled via inline onclick on the elements)
+
+// ═══ HELP MODAL ═══
+(function() {
+  var TITLES = {
+    prepare:    '📂 Загрузка прайсов — инструкция',
+    monitor:    '📊 Мониторинг цен — инструкция',
+    matcher:    '🔍 Поиск кросскодов — инструкция',
+    barcodes:   '🔢 База штрихкодов — инструкция',
+    brands:     '🏷️ База брендов — инструкция'
+  };
+
+  window.openHelpModal = function(pane) {
+    var modal  = document.getElementById('helpModal');
+    var body   = document.getElementById('helpModalBody');
+    var title  = document.getElementById('helpModalTitle');
+    if (!modal || !body || !title) return;
+
+    var sourceEl = null;
+    var titleKey = pane;
+
+    if (pane === 'prepare') {
+      var adv  = document.getElementById('obrAdvantagesBlock');
+      var hint = document.getElementById('obrUploadHint');
+      body.innerHTML = '';
+      if (adv)  body.appendChild(adv.cloneNode(true));
+      if (hint) body.appendChild(hint.cloneNode(true));
+    } else if (pane === 'monitor') {
+      sourceEl = document.getElementById('monitorEmptyState');
+    } else if (pane === 'matcher') {
+      sourceEl = document.getElementById('matcherEmpty');
+    } else if (pane === 'jsoneditor') {
+      var bcTab = document.getElementById('subtab-barcodes');
+      var isBarcodes = bcTab && bcTab.classList.contains('active');
+      titleKey  = isBarcodes ? 'barcodes' : 'brands';
+      sourceEl  = isBarcodes
+        ? document.getElementById('jeEmpty')
+        : document.getElementById('brandEmpty');
+    }
+
+    if (pane !== 'prepare') {
+      body.innerHTML = sourceEl ? sourceEl.innerHTML : '<p style="color:var(--text-muted);padding:20px;">Инструкция недоступна.</p>';
+    }
+
+    title.textContent = TITLES[titleKey] || 'Инструкция';
+    modal.classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+  };
+
+  window.closeHelpModal = function() {
+    var modal = document.getElementById('helpModal');
+    if (modal) modal.classList.remove('open');
+    document.documentElement.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var modal = document.getElementById('helpModal');
+      if (modal && modal.classList.contains('open')) closeHelpModal();
+    }
+  });
+})();
 
 })();
 

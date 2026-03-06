@@ -146,6 +146,7 @@
 <button class="btn btn-success" disabled="" id="obrHeaderArchiveBtn" title="Скачать все CSV, Excel и JSON одним архивом">
 <span class="xl-icon">📦</span> Скачать всё архивом
         </button>
+<button class="btn help-btn" id="helpBtnPrepare" onclick="openHelpModal('prepare')" title="Инструкция по работе с этой вкладкой">📖</button>
 </div>
 </div>
 <!-- Loaded files list -->
@@ -474,6 +475,7 @@
 <button class="btn btn-success" disabled="" id="monitorDownloadArchiveBtn" title="Скачать все CSV, Excel и JSON одним архивом">
 <span class="xl-icon">📦</span> Скачать все архивом
       </button>
+<button class="btn help-btn" id="helpBtnMonitor" onclick="openHelpModal('monitor')" title="Инструкция по работе с этой вкладкой">📖</button>
 </div>
 </div>
 <!-- Info panel — показывается только когда данные загружены -->
@@ -777,6 +779,7 @@
 </div>
 <div class="pane-title-extra">
 <button class="btn btn-success" id="matcherRunBtn" title="Запустить поиск">▶ Запустить поиск</button>
+<button class="btn help-btn" id="helpBtnMatcher" onclick="openHelpModal('matcher')" title="Инструкция по работе с этой вкладкой">📖</button>
 </div>
 </div>
 <div class="obr-modal-note" id="matcherDirtyWarn" style="display:none;margin-bottom:10px;">
@@ -930,6 +933,9 @@
 <div class="pane-title-text">
 <h2>База кросскодов</h2>
 <p>Штрихкоды, бренды и кросскоды для связывания товаров</p>
+</div>
+<div class="pane-title-extra">
+<button class="btn help-btn" id="helpBtnJsoneditor" onclick="openHelpModal('jsoneditor')" title="Инструкция по работе с этой вкладкой">📖</button>
 </div>
 </div>
 <div style="display:flex;gap:4px;align-items:center;padding:0 0 14px;border-bottom:1px solid var(--border);margin-bottom:14px;">
@@ -1651,6 +1657,20 @@
 </div>
 </div>
 </div>
+<!-- ═══ HELP MODAL ═══ -->
+<div id="helpModal" class="help-modal-overlay" onclick="if(event.target===this)closeHelpModal()">
+  <div class="help-modal-box">
+    <div class="help-modal-header">
+      <div class="help-modal-title-row">
+        <span class="help-modal-icon">📖</span>
+        <span id="helpModalTitle">Инструкция</span>
+      </div>
+      <button class="modal-close-x" onclick="closeHelpModal()" title="Закрыть">✕</button>
+    </div>
+    <div class="help-modal-body" id="helpModalBody"></div>
+  </div>
+</div>
+
 <script src="app.js"></script>
 <!-- ═══ PWA ═══ -->
 <script>
