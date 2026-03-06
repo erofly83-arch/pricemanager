@@ -66,7 +66,7 @@
   <nav class="sidebar-nav" id="appNav">
     <div class="sidebar-section-label">Работа</div>
     <button class="nav-tab active" data-pane="prepare" id="navPrepare" data-label="Загрузка прайсов">
-      <span class="nav-tab-icon"><svg style="width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg></span><span class="nav-tab-label"> Загрузка прайсов</span>
+      <span class="nav-tab-icon"><svg style="width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><span class="nav-tab-label"> Загрузка прайсов</span>
     </button>
     <button class="nav-tab" data-pane="monitor" id="navMonitor" data-label="Мониторинг цен">
       <span class="nav-tab-icon"><svg style="width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="nav-tab-label"> Мониторинг цен</span>
@@ -97,7 +97,7 @@
     <!-- Мой прайс -->
     <div class="sidebar-file-item sidebar-file-item--empty" id="sfMyPriceItem">
       <div class="sf-row">
-        <span class="sf-icon">🏷️</span>
+        <span class="sf-icon"><svg style="width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
         <span class="sf-name" id="sfMyPriceName">Мой прайс не загружен</span>
         <span class="sf-type sf-type--myprice" id="sfMyPriceBadge" style="display:none;">Прайс</span>
       </div>
@@ -160,7 +160,7 @@
 
     <!-- ═══ PANE TITLE ═══ -->
     <div class="obr-pane-title">
-      <div class="pane-title-icon" style="background:var(--accent-bg);border:1px solid #C7D7F5;"><svg style="width:20px;height:20px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg></div>
+      <div class="pane-title-icon" style="background:var(--accent-bg);border:1px solid #C7D7F5;"><svg style="width:20px;height:20px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
       <div class="pane-title-text">
         <h2 style="font-size:var(--fz-lg);font-weight:700;color:var(--text-primary);margin:0;line-height:1.2;">Загрузка прайсов</h2>
         <p style="font-size:var(--fz-xs);color:var(--text-muted);margin:2px 0 0;line-height:1.3;">Загрузите файлы, выберите и назовите нужные колонки, передайте в мониторинг</p>
@@ -187,7 +187,7 @@
 
     <!-- ═══ UPLOAD HEADER BAR ═══ -->
     <div class="obr-upload-header" id="obrUploadHeader">
-      <span class="obr-upload-header-label"><svg style="width:14px;height:14px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузка файлов</span>
+      <span class="obr-upload-header-label"><svg style="width:14px;height:14px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузка файлов</span>
       <div class="obr-upload-btns">
 
         <div class="obr-upload-card card-json" id="obrHeaderJsonWrap" title="Загрузить файл-память: разметка колонок и база кросскодов">
@@ -201,7 +201,7 @@
 
         <div class="obr-upload-card" id="obrHeaderMyPriceCard" title="Загрузить свой основной прайс-лист">
           <div class="obr-upload-card-top">
-            <span class="obr-upload-card-icon">🏷️</span>
+            <span class="obr-upload-card-icon"><svg style="width:22px;height:22px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
             <span class="obr-upload-card-title">Мой прайс</span>
           </div>
           <span class="obr-upload-card-hint">Основной прайс-лист</span>
@@ -264,19 +264,19 @@
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:8px;">Какие задачи решает программа</div>
       <div class="dash-instr-grid" style="margin-bottom:20px;">
         <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">😤</span><span class="dash-instr-card-title">«ВПР не находит половину товаров»</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><span class="dash-instr-card-title">«ВПР не находит половину товаров»</span></div>
           <div class="dash-instr-card-body">Разные штрихкоды на один товар — классическая боль. База кросскодов и «Поиск кросскодов» связывают их автоматически, в том числе по схожести наименований.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">⏱️</span><span class="dash-instr-card-title">«Каждую неделю 2–3 часа на сравнение»</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="dash-instr-card-title">«Каждую неделю 2–3 часа на сравнение»</span></div>
           <div class="dash-instr-card-body">Настройте колонки один раз и сохраните файл-память. При следующей загрузке тех же прайсов вся разметка применится автоматически — обработка займёт секунды.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">💳</span><span class="dash-instr-card-title">«У поставщиков нал и безнал — путаница»</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><span class="dash-instr-card-title">«У поставщиков нал и безнал — путаница»</span></div>
           <div class="dash-instr-card-body">Назовите ценовые колонки с «нал» или «бн» — программа автоматически разделит их и найдёт минимум в каждой группе оплаты отдельно.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">📦</span><span class="dash-instr-card-title">«Поставщик не даёт штрихкоды»</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span class="dash-instr-card-title">«Поставщик не даёт штрихкоды»</span></div>
           <div class="dash-instr-card-body">Используйте артикулы поставщика как кросскоды — добавьте их в базу штрихкодов, и программа сопоставит артикулы с вашими штрихкодами автоматически.</div>
         </div>
       </div>
@@ -313,7 +313,7 @@
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;">
             <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 5</span>
-            <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Нажмите <b>«✅ Готово — передать в мониторинг»</b>. Файл зафиксируется. Если загружено несколько прайсов поставщиков — система предложит обработать их по очереди автоматически.</span>
+            <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Нажмите <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Готово — передать в мониторинг»</b>. Файл зафиксируется. Если загружено несколько прайсов поставщиков — система предложит обработать их по очереди автоматически.</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;">
             <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 6</span>
@@ -357,7 +357,7 @@
           <div style="display:flex;flex-direction:column;gap:8px;">
             <div style="display:flex;align-items:center;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#EEF4FF;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;min-width:80px;text-align:center;">Загрузить</span>
-              <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Карточка <b>«Файл памяти»</b> на этой вкладке — или кнопка <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузить файл памяти»</b> на вкладках «Штрихкоды» и «Бренды». Загружайте первым делом при каждом открытии программы.</span>
+              <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Карточка <b>«Файл памяти»</b> на этой вкладке — или кнопка <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузить файл памяти»</b> на вкладках «Штрихкоды» и «Бренды». Загружайте первым делом при каждом открытии программы.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:var(--green-dark);background:var(--green-bg);border:1px solid #A7F3D0;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;min-width:80px;text-align:center;">Скачать</span>
@@ -376,20 +376,20 @@
       <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;">
         <div style="display:flex;flex-direction:column;gap:10px;">
           <div style="display:flex;align-items:flex-start;gap:10px;">
-            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;">🔢 Штрихкод</span>
+            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg> Штрихкод</span>
             <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Ищется по словам «штрихкод», «ШК», «barcode», «EAN», «UPC», «код товара» и похожим в заголовке. Если в колонке числа от 8 до 14 цифр — это дополнительный признак штрихкода.</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;">
-            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;">🏷️ Наименование</span>
+            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Наименование</span>
             <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Определяется по словам «наименование», «название», «товар», «номенклатура», «name», «description» и похожим. Как правило — это самая длинная текстовая колонка в файле.</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;">
-            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;">💰 Цена</span>
+            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Цена</span>
             <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Ищется по словам «цена», «price», «стоимость», «руб», «нал», «безнал», «бн» и похожим. Можно назначить несколько ценовых колонок — каждая попадёт в мониторинг отдельным столбцом.</span>
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;">
-            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;">✏️ Настройка слов</span>
-            <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Кнопка <b>«🏷️ Настройка названий колонок»</b> позволяет добавлять и редактировать ключевые слова для автоопределения. Настроили один раз — работает для всех прайсов с похожими заголовками.</span>
+            <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:150px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Настройка слов</span>
+            <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Кнопка <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Настройка названий колонок»</b> позволяет добавлять и редактировать ключевые слова для автоопределения. Настроили один раз — работает для всех прайсов с похожими заголовками.</span>
           </div>
         </div>
       </div>
@@ -397,11 +397,11 @@
       <!-- TIPS -->
       <div class="dash-instr-grid" style="margin-bottom:14px;">
         <div class="dash-instr-card" style="border-left:3px solid var(--green);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">⚡</span><span class="dash-instr-card-title">Один раз — навсегда</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#059669;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="dash-instr-card-title">Один раз — навсегда</span></div>
           <div class="dash-instr-card-body">После первой настройки сохраните файл-память. В следующий раз загрузите его первым — разметка колонок для всех прайсов восстановится автоматически. Обработка 5 прайсов займёт меньше минуты.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--green);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">📋</span><span class="dash-instr-card-title">Пакетная обработка</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><span class="dash-instr-card-title">Пакетная обработка</span></div>
           <div class="dash-instr-card-body">Загрузите сразу несколько файлов поставщиков — программа предложит обработать их по очереди. Для каждого следующего файла откроется редактор, прогресс очереди показан в строке вверху.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--amber);">
@@ -409,12 +409,12 @@
           <div class="dash-instr-card-body">После передачи файла кнопка <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Проверить пропущенные строки»</b> покажет, какие позиции не попали в мониторинг — обычно это строки без штрихкода или с пустой ценой.</div>
         </div>
         <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-          <div class="dash-instr-card-header"><span style="font-size:15px;">🔢</span><span class="dash-instr-card-title">Артикулы вместо штрихкодов</span></div>
+          <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span><span class="dash-instr-card-title">Артикулы вместо штрихкодов</span></div>
           <div class="dash-instr-card-body">Поставщик не даёт штрихкоды? Используйте его артикулы как кросскоды в базе штрихкодов — добавьте их напротив ваших штрихкодов, и сопоставление заработает автоматически.</div>
         </div>
       </div>
 
-      <div class="dash-instr-tip">💡 <b>Совет для первого запуска:</b> загрузите ваш прайс и хотя бы один прайс поставщика, настройте колонки и нажмите «Готово». Затем перейдите в «Мониторинг цен» — посмотрите покрытие. Если много строк без совпадений — откройте «Поиск кросскодов» и свяжите товары по наименованию. После этого вернитесь и снова проверьте мониторинг.</div>
+      <div class="dash-instr-tip"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> <b>Совет для первого запуска:</b> загрузите ваш прайс и хотя бы один прайс поставщика, настройте колонки и нажмите «Готово». Затем перейдите в «Мониторинг цен» — посмотрите покрытие. Если много строк без совпадений — откройте «Поиск кросскодов» и свяжите товары по наименованию. После этого вернитесь и снова проверьте мониторинг.</div>
     </div>
 
     <!-- Editing toolbars — shown only when a file is loaded -->
@@ -437,19 +437,19 @@
       <div class="xl-group">
         <button class="btn xl-btn xl-btn-accent" id="obrDownloadBtn" disabled
           data-tip="Сохранить CSV и передать в мониторинг.">
-          <span class="xl-icon">✅</span> Готово — передать в мониторинг
+          <svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Готово — передать в мониторинг
         </button>
       </div>
       <div class="xl-toolbar-sep"></div>
       <div class="xl-group">
         <button class="btn xl-btn" id="obrResetBtn" data-tip="Снять выделение со всех колонок.">
-          <span class="xl-icon">↩️</span> Снять выделение колонок
+          <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg> Снять выделение колонок
         </button>
       </div>
       <div class="xl-toolbar-sep"></div>
       <div class="xl-group">
         <button class="btn xl-btn" id="obrManageTemplatesBtn" data-tip="Редактировать список наименований колонок и кросскоды.">
-          <span class="xl-icon">🏷️</span> Настройка названий колонок
+          <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Настройка названий колонок
         </button>
       </div>
       <div class="xl-toolbar-sep"></div>
@@ -489,7 +489,7 @@
         </div>
         <div class="obr-queue-bar-right">
           <span class="obr-queue-counter" id="obrQueueProgressLabel"></span>
-          <button class="obr-queue-skip-btn" id="obrQueueSkipBtn" title="Пропустить файл">⏭ Пропустить</button>
+          <button class="obr-queue-skip-btn" id="obrQueueSkipBtn" title="Пропустить файл"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg> Пропустить</button>
         </div>
       </div>
     </div>
@@ -527,7 +527,7 @@
         </div>
       </div>
       <button class="btn" id="cartBtn" onclick="openCartModal()" title="Открыть корзину заказов" style="position:relative;" disabled>
-        🛒 Корзина<span id="cartBadge">0</span>
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Корзина<span id="cartBadge">0</span>
       </button>
       <button class="btn btn-success" id="monitorDownloadArchiveBtn" disabled title="Скачать все CSV, Excel и JSON одним архивом">
         <span class="xl-icon"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span> Скачать все архивом
@@ -604,8 +604,8 @@
       <button id="deltaFilterBtn" class="btn btn-secondary" disabled title="Фильтр по разнице цены %"><span class="icon">Δ</span> Дельта %</button>
       <button id="showMyPriceBtn" class="btn btn-secondary" disabled title="Только мой прайс">Мой прайс</button>
       <button id="maxCoverageBtn" class="btn btn-secondary" disabled title="Поиск новинок"><span class="icon"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> Поиск новинок</button>
-      <button id="compactMatchesBtn" class="btn btn-secondary" disabled title="Компактный вид"><span class="icon">⊟</span> Компактный вид</button>
-      <button id="minPriceBtn" class="btn btn-secondary" disabled title="Подсветить минимальную цену в каждой строке (нал + безнал + мой прайс)"><span class="icon">⬇</span> Мин. цена</button>
+      <button id="compactMatchesBtn" class="btn btn-secondary" disabled title="Компактный вид"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Компактный вид</button>
+      <button id="minPriceBtn" class="btn btn-secondary" disabled title="Подсветить минимальную цену в каждой строке (нал + безнал + мой прайс)"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg> Мин. цена</button>
     </div>
     <div class="controls-group export-group">
       <button id="exportMyPriceBtn" class="btn btn-success" disabled title="Мой прайс Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Мой прайс</button>
@@ -621,7 +621,7 @@
   <div id="monitorStickyBar" class="hidden-columns">
     <span class="hidden-columns-label">Активные фильтры:</span>
     <span id="stickyBarChips"></span>
-    <button class="btn" id="stickyBarResetBtn" style="margin-left:auto;height:24px;padding:2px 10px;">✕ Сбросить все</button>
+    <button class="btn" id="stickyBarResetBtn" style="margin-left:auto;height:24px;padding:2px 10px;"><svg style="width:12px;height:12px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Сбросить все</button>
   </div>
 
   <!-- Delta % filter panel -->
@@ -651,8 +651,8 @@
     <div class="delta-group">
       <label>Направление</label>
       <div class="delta-dir-btns">
-        <button class="delta-dir-btn active-cheaper" id="deltaDirCheaper" title="Поставщик дешевле моей цены">⬇ Дешевле</button>
-        <button class="delta-dir-btn" id="deltaDirPricier" title="Поставщик дороже моей цены">⬆ Дороже</button>
+        <button class="delta-dir-btn active-cheaper" id="deltaDirCheaper" title="Поставщик дешевле моей цены"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg> Дешевле</button>
+        <button class="delta-dir-btn" id="deltaDirPricier" title="Поставщик дороже моей цены"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg> Дороже</button>
       </div>
     </div>
     <div class="delta-group" style="flex-direction:row;gap:6px;align-items:flex-end;">
@@ -684,7 +684,7 @@
         style="height:36px;padding:0 10px;border:1px solid var(--border-strong);border-radius:var(--radius-md);
                background:var(--surface);color:var(--text-secondary);font-size:var(--fz-md);
                font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background 100ms,border-color 100ms,color 100ms;flex-shrink:0;">
-        🏷 <span id="catExclBadge"></span>категории
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> <span id="catExclBadge"></span>категории
       </button>
     </div>
   </div>
@@ -717,7 +717,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 4</span>
-              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Используйте фильтры, поиск и категории для анализа. Выбранные позиции добавляйте в <b>🛒 Корзину</b> для формирования заказа поставщику.</span>
+              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Используйте фильтры, поиск и категории для анализа. Выбранные позиции добавляйте в <b><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Корзину</b> для формирования заказа поставщику.</span>
             </div>
           </div>
         </div>
@@ -743,11 +743,11 @@
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Фильтрует товары, которых нет в вашем прайсе, но они есть у поставщиков — потенциальные новинки для расширения ассортимента.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn btn-secondary" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><span class="icon">⊟</span> Компактный вид</button>
+              <button class="btn btn-secondary" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Компактный вид</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Сворачивает строки с несколькими вариантами наименований в одну компактную строку — удобно при большом числе поставщиков.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn btn-secondary" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><span class="icon">⬇</span> Мин. цена</button>
+              <button class="btn btn-secondary" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg> Мин. цена</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Подсвечивает зелёным минимальную цену в каждой строке — по нал, безнал и вашему прайсу отдельно. Сразу видно, у кого самая выгодная закупка.</span>
             </div>
           </div>
@@ -758,22 +758,22 @@
         <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;">
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
-              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;">🔍 Строка поиска</span>
+              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Строка поиска</span>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Фильтрует таблицу по наименованию товара в реальном времени. Работает совместно с фильтром категорий — оба условия применяются одновременно.</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
-              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;">🏷 Все категории</span>
+              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Все категории</span>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Выпадающий список часто встречающихся слов из наименований. При выборе категории таблица показывает только товары с этим словом в названии. Если в базе брендов есть кросскоды — поиск расширяется: выбрав «чай», вы увидите и строки с «tea».</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
-              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;">🏷 Редактор категорий</span>
-              <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Кнопка <b>«🏷 категории»</b> рядом с выпадающим списком открывает редактор: можно добавить нужные слова вручную или удалить лишние. Список формируется из наименований загруженных прайсов, но вы полностью контролируете его содержимое.</span>
+              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Редактор категорий</span>
+              <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Кнопка <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> категории»</b> рядом с выпадающим списком открывает редактор: можно добавить нужные слова вручную или удалить лишние. Список формируется из наименований загруженных прайсов, но вы полностью контролируете его содержимое.</span>
             </div>
           </div>
         </div>
 
         <!-- КОРЗИНА -->
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:8px;">🛒 Корзина заказов</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:8px;"><svg style="width:10px;height:10px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Корзина заказов</div>
         <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;">
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;align-items:flex-start;gap:10px;">
@@ -781,7 +781,7 @@
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Переключатель в правом верхнем углу. Включив его, вы переходите в режим отбора товаров: каждый клик по цене поставщика копирует штрихкод этого товара и добавляет позицию в корзину для данного поставщика.</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
-              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;">🛒 Корзина</span>
+              <span style="font-size:11px;font-weight:600;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:3px 10px;white-space:nowrap;flex-shrink:0;min-width:175px;text-align:center;box-sizing:border-box;margin-top:1px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Корзина</span>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Открывает накопленный список позиций по поставщикам. В корзине можно задать количество для каждой позиции, просмотреть итоговую сумму заказа и выгрузить список в Excel — отдельно по каждому поставщику или все сразу.</span>
             </div>
           </div>
@@ -818,15 +818,15 @@
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:7px;">Важные особенности</div>
         <div class="dash-instr-grid" style="margin-bottom:14px;">
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">🔢</span><span class="dash-instr-card-title">Сравнение по штрихкоду</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span><span class="dash-instr-card-title">Сравнение по штрихкоду</span></div>
             <div class="dash-instr-card-body">Основной метод сопоставления. Если коды одинаковые — товары связаны автоматически. Если разные — нужна запись в базе кросскодов.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">💳</span><span class="dash-instr-card-title">Нал и безнал</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="dash-instr-card-title">Нал и безнал</span></div>
             <div class="dash-instr-card-body">Назовите колонки с ценами так, чтобы в названии было слово «нал» или «бн» — система разобьёт их по группам и будет искать минимум раздельно в каждой группе.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">📈</span><span class="dash-instr-card-title">Статистика покрытия</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></span><span class="dash-instr-card-title">Статистика покрытия</span></div>
             <div class="dash-instr-card-body">Панель вверху показывает: сколько товаров совпало по штрихкоду, сколько — через кросскоды, и сколько осталось без совпадений. Низкое покрытие — сигнал пополнить базу кросскодов.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--amber);">
@@ -835,7 +835,7 @@
           </div>
         </div>
 
-        <div class="dash-instr-tip">💡 <b>Совет:</b> при первом запуске откройте «Поиск кросскодов» после загрузки прайсов — часть товаров без совпадений можно связать там автоматически. После этого вернитесь в мониторинг: покрытие вырастет.</div>
+        <div class="dash-instr-tip"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> <b>Совет:</b> при первом запуске откройте «Поиск кросскодов» после загрузки прайсов — часть товаров без совпадений можно связать там автоматически. После этого вернитесь в мониторинг: покрытие вырастет.</div>
       </div>
     </div>
   </div>
@@ -847,13 +847,13 @@
   <div class="container">
     <!-- Unified pane title -->
     <div class="pane-title">
-      <div class="pane-title-icon"><svg style="width:20px;height:20px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="pane-title-icon"><svg style="width:20px;height:20px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       <div class="pane-title-text">
         <h2>Поиск кросскодов <span style="font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent);border-radius:4px;padding:1px 6px;vertical-align:middle;letter-spacing:0.3px;">Beta</span></h2>
         <p>Поиск связей между товарами поставщиков по наименованию</p>
       </div>
       <div class="pane-title-extra">
-        <button class="btn btn-success" id="matcherRunBtn" title="Запустить поиск">▶ Запустить поиск</button>
+        <button class="btn btn-success" id="matcherRunBtn" title="Запустить поиск"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Запустить поиск</button>
       </div>
     </div>
     <div id="matcherDirtyWarn" style="display:none;margin-bottom:10px;" class="obr-modal-note">
@@ -882,7 +882,7 @@
     <!-- Matcher history -->
     <div id="matcherHistoryWrap">
       <div class="mhist-header" id="matcherHistoryToggle">
-        <span style="font-size:12px;flex-shrink:0;">↩</span>
+        <span style="display:inline-flex;align-items:center;flex-shrink:0;"><svg style="width:12px;height:12px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></span>
         <span class="mhist-title">История действий</span>
         <span class="mhist-count" id="mhistCount">0</span>
         <span class="mhist-chevron">▼</span>
@@ -934,12 +934,12 @@
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:7px;">Как это работает</div>
         <div class="dash-instr-grid" style="margin-bottom:16px;">
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">🤖</span><span class="dash-instr-card-title">Анализ по наименованию</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="dash-instr-card-title">Анализ по наименованию</span></div>
             <div class="dash-instr-card-body">Система сравнивает названия товаров из всех загруженных файлов и вычисляет оценку схожести от 0 до 100%. Чем выше оценка — тем вероятнее это один и тот же товар.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">✅</span><span class="dash-instr-card-title">Ручное подтверждение</span></div>
-            <div class="dash-instr-card-body">Вы сами решаете, какие пары верны. Нажмите <b>«✓»</b> — пара попадёт в базу штрихкодов и сразу улучшит совпадения в мониторинге. Нажмите <b>«✗»</b> — пара будет скрыта.</div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span class="dash-instr-card-title">Ручное подтверждение</span></div>
+            <div class="dash-instr-card-body">Вы сами решаете, какие пары верны. Нажмите <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>»</b> — пара попадёт в базу штрихкодов и сразу улучшит совпадения в мониторинге. Нажмите <b>«✗»</b> — пара будет скрыта.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
             <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="dash-instr-card-title">Три уровня уверенности</span></div>
@@ -969,7 +969,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 4</span>
-              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Для каждой пары нажмите <b>«✓»</b> если товары одинаковые — или <b>«✗»</b> если нет. Подтверждённые пары сразу попадают в базу штрихкодов и улучшают мониторинг.</span>
+              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Для каждой пары нажмите <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>»</b> если товары одинаковые — или <b>«✗»</b> если нет. Подтверждённые пары сразу попадают в базу штрихкодов и улучшают мониторинг.</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 5</span>
@@ -982,11 +982,11 @@
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin:0 0 7px;">Дополнительные возможности</div>
         <div class="dash-instr-grid" style="margin-bottom:14px;">
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="font-size:13px;">🔍</span><span class="dash-instr-card-title">Поиск и фильтры</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="dash-instr-card-title">Поиск и фильтры</span></div>
             <div class="dash-instr-card-body">Ищите пары по названию или штрихкоду. Фильтруйте по файлу-источнику или по категории (слова из найденных наименований).</div>
           </div>
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="font-size:13px;">↩️</span><span class="dash-instr-card-title">История действий</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></span><span class="dash-instr-card-title">История действий</span></div>
             <div class="dash-instr-card-body">Раздел «История действий» хранит все подтверждения и отклонения текущей сессии. Ошибочное решение можно откатить прямо из истории.</div>
           </div>
           <div class="dash-instr-card">
@@ -994,12 +994,12 @@
             <div class="dash-instr-card-body">Колонка «Тип» показывает, как будет записана пара: <b>новая группа</b> — создаётся новая запись в базе, <b>дополнение</b> — код добавляется в существующую группу.</div>
           </div>
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg></span><span class="dash-instr-card-title">Учёт файла-памяти</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span><span class="dash-instr-card-title">Учёт файла-памяти</span></div>
             <div class="dash-instr-card-body">Если загружен файл-память — уже известные кросскоды не предлагаются повторно. Поиск сосредоточится только на новых, ещё не связанных товарах.</div>
           </div>
         </div>
 
-        <div class="dash-instr-tip">💡 <b>Совет:</b> запускайте поиск кросскодов после каждой новой загрузки прайсов — так база будет пополняться постепенно и мониторинг станет точнее со временем.</div>
+        <div class="dash-instr-tip"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> <b>Совет:</b> запускайте поиск кросскодов после каждой новой загрузки прайсов — так база будет пополняться постепенно и мониторинг станет точнее со временем.</div>
       </div>
     </div>
   </div>
@@ -1020,11 +1020,11 @@
     <span style="font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-right:4px;white-space:nowrap;">Раздел:</span>
     <div class="syn-subtab active has-tip" data-subtab="barcodes" id="subtab-barcodes" data-tip="Группы эквивалентных штрихкодов: один товар — разные коды у разных поставщиков. Добавьте их в одну группу, и система автоматически найдёт совпадения в мониторинге"
       style="padding:6px 14px;border-radius:var(--radius-md);border:1px solid var(--border-strong);font-size:var(--fz-md);font-weight:500;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:5px;transition:background 100ms,border-color 100ms,color 100ms;margin-bottom:0;">
-      🔢 Штрихкоды <span id="bcCountBadge" class="subtab-badge subtab-badge--green">0</span>
+      <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg> Штрихкоды <span id="bcCountBadge" class="subtab-badge subtab-badge--green">0</span>
     </div>
     <div class="syn-subtab has-tip" data-subtab="brands" id="subtab-brands" data-tip="Словарь брендов: канонические написания и их синонимы (аббревиатуры, варианты на кириллице/латинице). Используется для фильтрации по категории в мониторинге"
       style="padding:6px 14px;border-radius:var(--radius-md);border:1px solid var(--border-strong);font-size:var(--fz-md);font-weight:500;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:5px;transition:background 100ms,border-color 100ms,color 100ms;margin-bottom:0;">
-      🏷️ Бренды <span id="brandCountBadge" class="subtab-badge subtab-badge--green">0</span>
+      <svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Бренды <span id="brandCountBadge" class="subtab-badge subtab-badge--green">0</span>
     </div>
   </div>
 
@@ -1032,17 +1032,17 @@
   <div class="syn-subtab-pane active" id="subpane-barcodes">
     <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:6px 0 8px;border-bottom:1px solid var(--border);margin-bottom:4px;">
       <button class="btn btn-success" id="jeExportXlsxBtn" disabled title="Экспорт в Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Экспорт Excel</button>
-      <button class="btn" id="jeImportXlsxBtn">📥 Импорт Excel</button>
+      <button class="btn" id="jeImportXlsxBtn"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Импорт Excel</button>
       <input type="file" id="jeXlsxFileIn" accept=".xlsx,.xls" style="display:none;">
       <div style="width:1px;height:22px;background:var(--border);margin:0 2px;"></div>
       <label class="btn" style="cursor:pointer;position:relative;" title="Загрузить файл-память JSON">
-        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузить файл памяти
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузить файл памяти
         <input type="file" id="bcLoadJsonFileIn" accept=".json" style="position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;font-size:0;">
       </label>
       <button class="btn btn-success" id="jeDownloadJsonBtn" onclick="downloadCurrentSynonyms()" title="Скачать файл-память: штрихкоды, бренды и настройки колонок"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать файл памяти</button>
       <div style="width:1px;height:22px;background:var(--border);margin:0 2px;"></div>
-      <button class="btn btn-secondary" id="jeUndoBtn" disabled title="Отменить (Ctrl+Z)">↩️</button>
-      <button class="btn btn-secondary" id="jeRedoBtn" disabled title="Повторить (Ctrl+Y)">↪️</button>
+      <button class="btn btn-secondary" id="jeUndoBtn" disabled title="Отменить (Ctrl+Z)"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></button>
+      <button class="btn btn-secondary" id="jeRedoBtn" disabled title="Повторить (Ctrl+Y)"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 0 4-4h12"/></svg></button>
       <div style="width:1px;height:22px;background:var(--border);margin:0 2px;"></div>
       <button class="btn btn-danger" id="jeClearBtn" disabled><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg> Очистить</button>
     </div>
@@ -1075,15 +1075,15 @@
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:7px;">Из чего состоит запись</div>
           <div class="dash-instr-grid" style="margin-bottom:16px;">
             <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-              <div class="dash-instr-card-header"><span style="font-size:15px;">🏷️</span><span class="dash-instr-card-title">Название товара</span></div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span><span class="dash-instr-card-title">Название товара</span></div>
               <div class="dash-instr-card-body">Произвольное описание для удобства — чтобы вы понимали, о каком товаре речь. В сравнении не участвует, используется только для отображения.</div>
             </div>
             <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-              <div class="dash-instr-card-header"><span style="font-size:15px;">🔑</span><span class="dash-instr-card-title">Главный штрихкод</span></div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span><span class="dash-instr-card-title">Главный штрихкод</span></div>
               <div class="dash-instr-card-body">Ваш основной код товара — тот, что стоит в вашем прайсе. Именно вокруг него строится группа.</div>
             </div>
             <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-              <div class="dash-instr-card-header"><span style="font-size:15px;">🔀</span><span class="dash-instr-card-title">Кросскоды</span></div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg></span><span class="dash-instr-card-title">Кросскоды</span></div>
               <div class="dash-instr-card-body">Альтернативные коды того же товара у поставщиков. При сравнении система ищет совпадение по главному коду <b>и</b> по всем кросскодам группы.</div>
             </div>
             <div class="dash-instr-card" style="border-left:3px solid var(--amber);">
@@ -1101,11 +1101,11 @@
                 <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Выгружает базу штрихкодов в таблицу Excel для просмотра или редактирования вне приложения.</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
-                <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;">📥 Импорт Excel</button>
+                <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Импорт Excel</button>
                 <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Загружает группы кросскодов из Excel-файла — удобно при первоначальном наполнении большой базы.</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
-                <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузить файл памяти</button>
+                <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузить файл памяти</button>
                 <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Восстанавливает базу штрихкодов, бренды и настройки колонок из ранее сохранённого JSON.</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
@@ -1150,20 +1150,20 @@
               <div class="dash-instr-card-body">Редактируйте базу в Excel и загружайте обратно. Удобно для первичного наполнения или массовых правок.</div>
             </div>
             <div class="dash-instr-card">
-              <div class="dash-instr-card-header"><span style="font-size:13px;">↩️</span><span class="dash-instr-card-title">Отмена изменений</span></div>
-              <div class="dash-instr-card-body">Кнопки ↩️ и ↪️ в тулбаре позволяют отменить или повторить последние действия — удаление, добавление кросскодов, переименование.</div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></span><span class="dash-instr-card-title">Отмена изменений</span></div>
+              <div class="dash-instr-card-body">Кнопки <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg> и <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 0 4-4h12"/></svg> в тулбаре позволяют отменить или повторить последние действия — удаление, добавление кросскодов, переименование.</div>
             </div>
             <div class="dash-instr-card">
-              <div class="dash-instr-card-header"><span style="font-size:13px;">🔍</span><span class="dash-instr-card-title">Поиск</span></div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="dash-instr-card-title">Поиск</span></div>
               <div class="dash-instr-card-body">Строка поиска появляется после добавления первой записи — ищет одновременно по названию товара и по всем штрихкодам группы.</div>
             </div>
             <div class="dash-instr-card">
-              <div class="dash-instr-card-header"><span style="font-size:13px;">🤖</span><span class="dash-instr-card-title">Автоматически через поиск</span></div>
+              <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="dash-instr-card-title">Автоматически через поиск</span></div>
               <div class="dash-instr-card-body">Вкладка «Поиск кросскодов» предложит пары товаров по схожести наименований. Подтверждённые пары попадут в базу автоматически.</div>
             </div>
           </div>
 
-          <div class="dash-instr-tip">💡 <b>Совет:</b> начните с «Поиска кросскодов» после первой загрузки прайсов — система сама найдёт похожие товары с разными кодами. Это быстрее, чем заполнять базу вручную.</div>
+          <div class="dash-instr-tip"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> <b>Совет:</b> начните с «Поиска кросскодов» после первой загрузки прайсов — система сама найдёт похожие товары с разными кодами. Это быстрее, чем заполнять базу вручную.</div>
         </div>
       </div>
       <table id="jeTable" style="display:none;table-layout:fixed;width:100%;">
@@ -1185,7 +1185,7 @@
       <button class="btn btn-success" id="brandOpenAddModalBtn"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Добавить бренд</button>
       <div style="width:1px;height:22px;background:var(--border);margin:0 2px;"></div>
       <label class="btn" style="cursor:pointer;position:relative;" title="Загрузить файл-память JSON">
-        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузить файл памяти
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузить файл памяти
         <input type="file" id="brandLoadJsonFileIn" accept=".json" style="position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;font-size:0;">
       </label>
       <button class="btn btn-success" id="brandDownloadJsonBtn" onclick="downloadCurrentSynonyms()" title="Скачать файл-память: штрихкоды, бренды и настройки колонок"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать файл памяти</button>
@@ -1195,7 +1195,7 @@
     <div id="brandSearchArea" style="display:none;">
     <div class="brand-search-row search-box--above-table" style="display:flex;gap:6px;align-items:center;">
       <input class="search-input" id="brandSearchInp" placeholder="Поиск по брендам, кросскодам, антонимам..." style="flex:1;">
-      <button id="brandConflictFilterBtn" class="btn btn-secondary" title="Показать только бренды с конфликтами">⚠️ Конфликты</button>
+      <button id="brandConflictFilterBtn" class="btn btn-secondary" title="Показать только бренды с конфликтами"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Конфликты</button>
     </div>
     </div>
     <div class="brand-empty" id="brandEmpty">
@@ -1211,21 +1211,21 @@
         <div class="dash-instr-grid" style="margin-bottom:16px;">
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
             <div class="dash-instr-card-header">
-              <span style="font-size:15px;">🔑</span>
+              <span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></span>
               <span class="dash-instr-card-title">Канонический ключ</span>
             </div>
             <div class="dash-instr-card-body">Главное «эталонное» название группы — именно его вы видите в таблице и используете для поиска. Система ищет товары по этому ключу <b>и</b> по всем его кросскодам одновременно.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
             <div class="dash-instr-card-header">
-              <span style="font-size:15px;">🔀</span>
+              <span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg></span>
               <span class="dash-instr-card-title">Кросскоды</span>
             </div>
             <div class="dash-instr-card-body">Альтернативные написания того же понятия: кириллица, латиница, аббревиатуры, опечатки. Пример: для «чай» добавьте «tea» — и фильтр категорий в мониторинге найдёт оба написания сразу.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--red);">
             <div class="dash-instr-card-header">
-              <span style="font-size:15px;">🚫</span>
+              <span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></span>
               <span class="dash-instr-card-title" style="color:var(--red);">Антонимы</span>
             </div>
             <div class="dash-instr-card-body">Слова, которые <b>исключают</b> принадлежность к группе. Если в наименовании есть антоним — товар не попадёт в группу, даже если синоним тоже присутствует. Помогает разграничить похожие группы: «чёрный» ≠ «зелёный».</div>
@@ -1235,7 +1235,7 @@
               <span style="display:inline-flex;align-items:center;"><svg style="width:15px;height:15px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
               <span class="dash-instr-card-title" style="color:var(--amber-dark);">Конфликты</span>
             </div>
-            <div class="dash-instr-card-body">Одно слово не может быть кросскодом в двух разных группах — это противоречие. Конфликтные слова подсвечиваются жёлтым прямо в таблице. Кнопка <b>⚠️ Конфликты</b> выводит только проблемные записи.</div>
+            <div class="dash-instr-card-body">Одно слово не может быть кросскодом в двух разных группах — это противоречие. Конфликтные слова подсвечиваются жёлтым прямо в таблице. Кнопка <b><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Конфликты</b> выводит только проблемные записи.</div>
           </div>
         </div>
 
@@ -1248,7 +1248,7 @@
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Открывает форму создания новой группы — канонический ключ, кросскоды, антонимы.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"/></svg> Загрузить файл памяти</button>
+              <button class="btn" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Загрузить файл памяти</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Восстанавливает базу брендов, штрихкоды и настройки колонок из ранее сохранённого JSON.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -1280,7 +1280,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 4</span>
-              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Нажмите <b>«✔ Сохранить бренд»</b>. Группа сразу начнёт работать в фильтре «Все категории» на вкладке «Мониторинг цен».</span>
+              <span style="font-size:var(--fz-sm);color:var(--text-primary);line-height:1.55;">Нажмите <b>«<svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Сохранить бренд»</b>. Группа сразу начнёт работать в фильтре «Все категории» на вкладке «Мониторинг цен».</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:10px;">
               <span style="font-size:var(--fz-xs);font-weight:700;color:#3059A8;background:#fff;border:1px solid #C7D7F5;border-radius:var(--radius);padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;">Шаг 5</span>
@@ -1293,21 +1293,21 @@
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin:0 0 7px;">Дополнительные возможности</div>
         <div class="dash-instr-grid" style="margin-bottom:14px;">
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="font-size:13px;">🔍</span><span class="dash-instr-card-title">Поиск</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="dash-instr-card-title">Поиск</span></div>
             <div class="dash-instr-card-body">Строка поиска ищет одновременно по каноническому ключу, кросскодам и антонимам — достаточно ввести любое слово из группы.</div>
           </div>
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="font-size:13px;">✏️</span><span class="dash-instr-card-title">Редактирование</span></div>
-            <div class="dash-instr-card-body">Нажмите кнопку ✏️ в строке таблицы или кликните по значку конфликта — откроется форма редактирования с теми же полями.</div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span><span class="dash-instr-card-title">Редактирование</span></div>
+            <div class="dash-instr-card-body">Нажмите кнопку <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> в строке таблицы или кликните по значку конфликта — откроется форма редактирования с теми же полями.</div>
           </div>
           <div class="dash-instr-card">
-            <div class="dash-instr-card-header"><span style="font-size:13px;">⚠️</span><span class="dash-instr-card-title">Фильтр конфликтов</span></div>
-            <div class="dash-instr-card-body">Кнопка <b>⚠️ Конфликты (N)</b> показывает только проблемные записи. Конфликтные слова выделены жёлтым прямо в таблице — кликните ✏️ и исправьте.</div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span class="dash-instr-card-title">Фильтр конфликтов</span></div>
+            <div class="dash-instr-card-body">Кнопка <b><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Конфликты (N)</b> показывает только проблемные записи. Конфликтные слова выделены жёлтым прямо в таблице — кликните <svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> и исправьте.</div>
           </div>
         </div>
 
         <!-- TIP -->
-        <div class="dash-instr-tip">💡 <b>Как это работает в мониторинге:</b> выбрав категорию в фильтре «Все категории» на вкладке «Мониторинг цен», система автоматически расширяет поиск на все кросскоды группы. Написали «чай» — получите строки с «tea», «тea» и другими вариантами из вашей базы. Антонимы при этом исключают нежелательные совпадения.</div>
+        <div class="dash-instr-tip"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> <b>Как это работает в мониторинге:</b> выбрав категорию в фильтре «Все категории» на вкладке «Мониторинг цен», система автоматически расширяет поиск на все кросскоды группы. Написали «чай» — получите строки с «tea», «тea» и другими вариантами из вашей базы. Антонимы при этом исключают нежелательные совпадения.</div>
       </div>
     </div>
     <div id="brandTableWrap" style="display:none;">
@@ -1353,7 +1353,7 @@
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="brandCloseEdit()">Отмена</button>
-      <button class="btn btn-success" onclick="brandSaveEdit()">✔ Сохранить</button>
+      <button class="btn btn-success" onclick="brandSaveEdit()"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Сохранить</button>
     </div>
   </div>
 </div>
@@ -1446,9 +1446,9 @@
       <p id="jeXlsModalMsg" style="font-size:var(--fz-base);line-height:1.5;"></p>
     </div>
     <div class="modal-footer" style="flex-direction:column;align-items:stretch;gap:6px;">
-      <button class="btn btn-success" onclick="jeXlsModalClose('overwrite')" style="justify-content:center;">♻️ Перезаписать существующие</button>
-      <button class="btn btn-secondary" onclick="jeXlsModalClose('skip')" style="justify-content:center;">⏭ Пропустить существующие</button>
-      <button class="btn btn-success" onclick="jeXlsModalClose('merge')" style="justify-content:center;">🔀 Объединить кросскоды</button>
+      <button class="btn btn-success" onclick="jeXlsModalClose('overwrite')" style="justify-content:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Перезаписать существующие</button>
+      <button class="btn btn-secondary" onclick="jeXlsModalClose('skip')" style="justify-content:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg> Пропустить существующие</button>
+      <button class="btn btn-success" onclick="jeXlsModalClose('merge')" style="justify-content:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg> Объединить кросскоды</button>
       <button class="btn" onclick="jeXlsModalClose(null)" style="justify-content:center;">Отмена</button>
     </div>
   </div>
@@ -1495,8 +1495,8 @@
   <div class="obr-modal-box">
     <div class="obr-modal-titlebar">
       <span style="display:flex;align-items:center;gap:8px;">
-        🏷️ Названия колонок
-        <span id="colSettingsSourceBadge" class="col-settings-source-badge col-settings-source-badge--demo">📋 демо-данные</span>
+        <svg style="width:14px;height:14px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Названия колонок
+        <span id="colSettingsSourceBadge" class="col-settings-source-badge col-settings-source-badge--demo"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> демо-данные</span>
       </span>
       <button class="modal-close-x" id="obrCloseTemplatesModal">✕</button>
     </div>
@@ -1509,17 +1509,17 @@
         <div style="display:flex;flex-direction:column;gap:10px;">
 
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;">
-            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;">🔢 Штрихкод</div>
+            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg> Штрихкод</div>
             <div style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.6;">Колонка должна содержать в названии слова: <b>штрихкод, штрих-код, barcode, ean, шк, код, артикул, sku</b>. Это главная колонка для сопоставления товаров — без неё файл не передастся в мониторинг. Если поставщик называет её «Код товара», «EAN13», «Артикул поставщика» — добавьте эти слова как кросскоды.</div>
           </div>
 
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;">
-            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;">🏷️ Наименование</div>
+            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Наименование</div>
             <div style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.6;">Колонка должна содержать: <b>название, наименование, name, товар, продукт, описание, title</b>. Используется для отображения в таблице мониторинга и для поиска кросскодов по наименованию. Если у поставщика колонка называется «Описание товара» или «Номенклатура» — добавьте эти слова.</div>
           </div>
 
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;">
-            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;">💰 Цена</div>
+            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Цена</div>
             <div style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.6;margin-bottom:6px;">Колонка с ценой <b>обязательно должна содержать слово «цена»</b> или одно из: <b>price, стоимость, прайс, опт, розн, ррц, рц, retail, wholesale</b>. Можно выбрать несколько ценовых колонок — каждая станет отдельным столбцом в мониторинге.</div>
             <div style="background:var(--amber-bg);border:1px solid #FDE68A;border-radius:var(--radius);padding:6px 10px;font-size:var(--fz-sm);color:var(--amber-dark);line-height:1.55;">
               <b>Нал и безнал:</b> чтобы программа разделила цены по типу оплаты, назовите колонки так, чтобы в названии было слово <b>«нал»</b> или <b>«бн»</b> (безнал). Например: «Цена нал», «Цена бн», «Нал», «Безнал». Минимальная цена будет искаться раздельно для каждой группы. Если у вас одна цена — просто назовите колонку «Цена».
@@ -1527,12 +1527,12 @@
           </div>
 
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;">
-            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;">📦 Остаток</div>
+            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--accent-dark);margin-bottom:6px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Остаток</div>
             <div style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.6;">Колонка с количеством на складе. Распознаётся по словам: <b>остаток, остатки, наличие, склад</b>. Отображается в таблице мониторинга рядом с ценой. Если у поставщика написано «Кол-во», «В наличии» — добавьте эти слова как кросскоды к типу «Остаток».</div>
           </div>
 
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;">
-            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--text-secondary);margin-bottom:6px;">🚚 В пути (необязательно)</div>
+            <div style="font-size:var(--fz-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--text-secondary);margin-bottom:6px;"><svg style="width:11px;height:11px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> В пути (необязательно)</div>
             <div style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.6;">Товары в транзите. Распознаётся по словам: <b>в пути, транзит, transit</b>. Отображается информационно, в сравнении цен не участвует.</div>
           </div>
 
@@ -1540,10 +1540,10 @@
       </div>
       <!-- Демо-баннер -->
       <div id="colSettingsDemoBanner" style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:var(--radius-md);padding:9px 14px;margin-bottom:12px;font-size:var(--fz-md);color:var(--amber-dark);line-height:1.5;">
-        📋 <b>Демо-данные.</b> Сейчас отображается встроенный набор колонок. При сохранении JSON они запишутся в файл автоматически — в следующий раз загрузите этот файл и ваши настройки восстановятся.
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#D97706;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Демо-данные. Сейчас отображается встроенный набор колонок. При сохранении JSON они запишутся в файл автоматически — в следующий раз загрузите этот файл и ваши настройки восстановятся.
       </div>
       <div id="colSettingsFileBanner" style="display:none;background:var(--green-bg);border:1px solid #A7F3D0;border-radius:var(--radius-md);padding:9px 14px;margin-bottom:12px;font-size:var(--fz-md);color:var(--green-dark);line-height:1.5;">
-        ✅ <b>Настройки из файла.</b> Загружены из вашего JSON. Изменения будут сохранены при следующем сохранении JSON.
+        <svg style="width:13px;height:13px;flex-shrink:0;stroke:#059669;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Настройки из файла. Загружены из вашего JSON. Изменения будут сохранены при следующем сохранении JSON.
       </div>
       <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:8px 12px;margin-bottom:8px;font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.55;">
         Добавьте новое название колонки ниже — оно появится в выпадающем списке при разметке прайса. У каждого названия есть <b>кросскоды</b> — слова по которым это название ищется автоматически в заголовках файлов. Стрелки ↑↓ меняют порядок и приоритет при автоопределении.
@@ -1561,7 +1561,7 @@
 <div class="obr-modal" id="obrSkippedModal">
   <div class="obr-modal-box">
     <div class="obr-modal-titlebar">
-      <span>⚠️ Пропущенные строки</span>
+      <span><svg style="width:14px;height:14px;flex-shrink:0;stroke:#F59E0B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Пропущенные строки</span>
       <button class="modal-close-x" id="obrCloseSkippedModal">✕</button>
     </div>
     <div class="obr-modal-body">
@@ -1570,7 +1570,7 @@
       <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">CSV будет скачан даже при наличии пропусков.</p>
     </div>
     <div class="obr-modal-footer">
-      <button class="btn" id="obrDownloadSkippedBtn">📋 Показать все пропуски</button>
+      <button class="btn" id="obrDownloadSkippedBtn"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Показать все пропуски</button>
       <button id="obrConfirmDownloadCsvBtn" style="display:none;"></button>
     </div>
   </div>
@@ -1580,7 +1580,7 @@
 <div id="brandAddModal" class="modal-overlay" style="z-index:10010;">
   <div class="modal-inner w560">
     <div class="modal-header">
-      <span>➕ Добавить новый бренд</span>
+      <span><svg style="width:14px;height:14px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Добавить новый бренд</span>
       <button id="brandAddModalCloseX" class="modal-close-x">✕</button>
     </div>
     <div class="modal-body">
@@ -1600,9 +1600,9 @@
       <span id="brandFormError" style="color:var(--red);font-size:12px;display:none;"></span>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-danger" id="brandClearFormBtn">✕ Очистить</button>
+      <button class="btn btn-danger" id="brandClearFormBtn"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Очистить</button>
       <button class="btn" id="brandAddModalCancel">Отмена</button>
-      <button class="btn btn-success" id="brandAddBtn">✔ Сохранить бренд</button>
+      <button class="btn btn-success" id="brandAddBtn"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Сохранить бренд</button>
     </div>
   </div>
 </div>
@@ -1615,7 +1615,7 @@
 <div id="obrNextStepModal">
   <div class="modal-inner" style="width:min(480px,94vw);">
     <div class="modal-header" style="justify-content:space-between;">
-      <span id="obrNextStepTitle" style="font-weight:700;font-size:var(--fz-lg);">✅ Файл сохранён!</span>
+      <span id="obrNextStepTitle" style="font-weight:700;font-size:var(--fz-lg);"><svg style="width:14px;height:14px;flex-shrink:0;stroke:#059669;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Файл сохранён!</span>
       <button class="modal-close-x" onclick="obrCloseNextStep()">✕</button>
     </div>
     <div class="modal-body">
@@ -1653,7 +1653,7 @@
   <div class="cart-qty-box" id="cartQtyBox">
     <!-- header -->
     <div class="cq-header">
-      <span class="cq-header-icon">🛒</span>
+      <span class="cq-header-icon"><svg style="width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
       <span id="cqSupplier" class="cq-supplier"></span>
       <button class="cq-close" onclick="closeCartQtyModal()">✕</button>
     </div>
@@ -1720,10 +1720,10 @@
 <div id="cartModal">
   <div class="cart-modal-box">
     <div class="cart-modal-header">
-      <span class="cart-modal-title">🛒 Корзина заказов</span>
+      <span class="cart-modal-title"><svg style="width:15px;height:15px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Корзина заказов</span>
       <div class="cart-modal-actions">
-        <button class="btn" id="cartMyPriceBtn" onclick="applyMyPriceToCart()" style="display:none;background:#EFF6FF;border-color:#3B6FD4;color:#1E3A5F;font-weight:600;" title="Подставить наименования и штрихкоды из вашего прайс-листа">🏷️ Свой прайс</button>
-        <button class="btn" id="cartMyPriceCancelBtn" onclick="cancelMyPriceFromCart()" style="display:none;background:#FEF2F2;border-color:#FCA5A5;color:#991B1B;" title="Убрать замену на мой прайс">✕ Сбросить мой прайс</button>
+        <button class="btn" id="cartMyPriceBtn" onclick="applyMyPriceToCart()" style="display:none;background:#EFF6FF;border-color:#3B6FD4;color:#1E3A5F;font-weight:600;" title="Подставить наименования и штрихкоды из вашего прайс-листа"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Свой прайс</button>
+        <button class="btn" id="cartMyPriceCancelBtn" onclick="cancelMyPriceFromCart()" style="display:none;background:#FEF2F2;border-color:#FCA5A5;color:#991B1B;" title="Убрать замену на мой прайс"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#991B1B;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Сбросить мой прайс</button>
         <button class="btn btn-success" onclick="downloadCartExcel()"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Скачать Excel</button>
         <button class="btn btn-danger" onclick="clearCart()"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg> Очистить</button>
         <button class="modal-close-x" onclick="closeCartModal()">✕</button>
@@ -1742,7 +1742,7 @@
 
     <!-- HEADER -->
     <div class="cem-header">
-      <div class="cem-header-icon">🏷</div>
+      <div class="cem-header-icon"><svg style="width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
       <div class="cem-header-text">
         <h3>Слова-категории</h3>
         <p>Белый список слов для фильтра «Все категории» — если пуст, показываются все частые слова</p>
@@ -1758,7 +1758,7 @@
         <div class="cem-left-head">
           <div class="cem-left-label">
             <span>Выбрано <span id="catExclSelectedCount" style="color:var(--accent);font-weight:700;"></span></span>
-            <button id="catExclClearBtn" style="display:none;padding:2px 8px;border:1px solid var(--border-strong);border-radius:var(--radius-md);background:var(--surface);color:var(--text-secondary);font-size:var(--fz-xs);cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;transition:background 100ms,color 100ms;" onmouseover="this.style.color='var(--red)';this.style.borderColor='var(--red)'" onmouseout="this.style.color='var(--text-secondary)';this.style.borderColor='var(--border-strong)'">✕ Сбросить</button>
+            <button id="catExclClearBtn" style="display:none;padding:2px 8px;border:1px solid var(--border-strong);border-radius:var(--radius-md);background:var(--surface);color:var(--text-secondary);font-size:var(--fz-xs);cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;transition:background 100ms,color 100ms;" onmouseover="this.style.color='var(--red)';this.style.borderColor='var(--red)'" onmouseout="this.style.color='var(--text-secondary)';this.style.borderColor='var(--border-strong)'"><svg style="width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Сбросить</button>
           </div>
         </div>
         <div class="cem-chips-wrap">
