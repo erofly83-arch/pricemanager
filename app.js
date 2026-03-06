@@ -5574,6 +5574,8 @@ function brandOpenAddModal() {
   ['brNCanon','brNSyns','brNAnti'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
   const errEl = document.getElementById('brandFormError');
   if (errEl) { errEl.style.display='none'; errEl.textContent=''; }
+  const hintEl = document.getElementById('brNCanonExistHint');
+  if (hintEl) { hintEl.style.display='none'; hintEl.innerHTML=''; }
   document.getElementById('brandAddModal').style.display = 'flex';
   setTimeout(() => { const el=document.getElementById('brNCanon'); if(el) el.focus(); }, 50);
 }
@@ -5619,7 +5621,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (errEl) { errEl.style.display = 'none'; errEl.innerHTML = ''; }
       brandCloseAddModal();
       brandRender(); brandMarkUnsaved();
-      // Deferred second render in case DOM isn't settled yet
       setTimeout(() => { brandRender(); }, 50);
       if (check.conflicts.length) {
         showToast(`⚠️ Бренд «${canon}» сохранён с конфликтами (${check.conflicts.length})`, 'warn');
@@ -5635,38 +5636,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (check.existingKey) {
+      // Silently merge if no conflicts — user already saw the inline hint
       const ex = _brandDB[check.existingKey];
-      const existSyns  = (ex.synonyms  || []).join(', ') || '—';
-      const existAnti  = (ex.antonyms  || []).join(', ') || '—';
       const mergedSyns = [...new Set([...(ex.synonyms||[]), ...syns])];
       const mergedAnti = [...new Set([...(ex.antonyms||[]), ...anti])];
-
-      const warnHtml = check.warnings.length ? brandConflictHtml({ conflicts:[], warnings: check.warnings }) : '';
-
-      const msg = [
-        `Бренд <b>«${canon}»</b> уже существует в базе:`,
-        `<div style="margin:6px 0;font-size:11px;background:#f5f5f5;border-radius:4px;padding:6px 8px;">`,
-        `  <b>Кросскоды:</b> ${existSyns}<br>`,
-        `  <b>Антонимы:</b> ${existAnti}`,
-        `</div>`,
-        `После объединения:<br>`,
-        `<div style="margin:4px 0;font-size:11px;background:#e8f7ef;border-radius:4px;padding:6px 8px;">`,
-        `  <b>Кросскоды:</b> ${mergedSyns.join(', ') || '—'}<br>`,
-        `  <b>Антонимы:</b> ${mergedAnti.join(', ') || '—'}`,
-        `</div>`,
-        warnHtml,
-        `Добавить в существующий бренд?`,
-      ].join('');
-
-      jeConfirmDialog(msg, '🔀 Бренд уже существует').then(function(ok) {
-        if (!ok) return;
-        _brandDB[canon] = { synonyms: mergedSyns, antonyms: mergedAnti };
-        ['brNCanon','brNSyns','brNAnti'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-        brandCloseAddModal();
-        brandRender(); brandMarkUnsaved();
-        setTimeout(() => { brandRender(); }, 50);
-        showToast(`Бренд «${canon}» обновлён (объединено)`, 'ok');
-      });
+      _brandDB[canon] = { synonyms: mergedSyns, antonyms: mergedAnti };
+      ['brNCanon','brNSyns','brNAnti'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+      brandCloseAddModal();
+      brandRender(); brandMarkUnsaved();
+      setTimeout(() => { brandRender(); }, 50);
+      const addedSyns = syns.filter(s => !(ex.synonyms||[]).includes(s));
+      const addedAnti = anti.filter(a => !(ex.antonyms||[]).includes(a));
+      const parts = [];
+      if (addedSyns.length) parts.push(`+${addedSyns.length} кросскод${addedSyns.length>1?'а':''}`);
+      if (addedAnti.length) parts.push(`+${addedAnti.length} антоним${addedAnti.length>1?'а':''}`);
+      showToast(`Бренд «${canon}» обновлён` + (parts.length ? ` (${parts.join(', ')})` : ''), 'ok');
       return;
     }
 
@@ -5681,6 +5665,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     _doSaveBrand();
   });
+
+  // Live hint: show when canon brand already exists in DB
+  const _brNCanonEl = document.getElementById('brNCanon');
+  if (_brNCanonEl) {
+    _brNCanonEl.addEventListener('input', function() {
+      const hintEl = document.getElementById('brNCanonExistHint');
+      if (!hintEl) return;
+      const val = brandNormKey(this.value);
+      if (!val || !_brandDB[val]) { hintEl.style.display = 'none'; hintEl.innerHTML = ''; return; }
+      const ex = _brandDB[val];
+      const exSyns = (ex.synonyms||[]).join(', ') || '—';
+      const exAnti = (ex.antonyms||[]).join(', ') || '—';
+      hintEl.innerHTML = `ℹ️ Бренд <b>«${val}»</b> уже есть в базе. `
+        + `Кросскоды: <b>${exSyns}</b>. Антонимы: <b style="color:var(--red)">${exAnti}</b>.<br>`
+        + `<span style="color:#3059A8;">Добавьте кросскоды или антонимы ниже — они будут объединены с существующими.</span>`;
+      hintEl.style.display = '';
+    });
+  }
 
   document.getElementById('brandClearFormBtn') && document.getElementById('brandClearFormBtn').addEventListener('click', function () {
     ['brNCanon','brNSyns','brNAnti'].forEach(id => document.getElementById(id).value = '');
