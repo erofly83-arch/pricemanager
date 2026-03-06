@@ -7792,7 +7792,7 @@ document.addEventListener('click', function(e) {
       cart = {};
       saveCart();
       updateCartBadge();
-      renderCartModal();
+      closeCartModal();
       if (typeof _mvsRenderVisible === 'function') _mvsRenderVisible();
     });
   };
