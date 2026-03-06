@@ -1302,7 +1302,11 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         _mvsRenderVisible();
 
         if (preserveScroll && _prevScroll > 0) {
-            requestAnimationFrame(() => { wrap.scrollTop = _prevScroll; });
+            // Double-rAF: first frame lets the browser apply the reflow from
+            // innerHTML changes, second frame restores scroll after it settles
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { wrap.scrollTop = _prevScroll; });
+            });
         }
         // ── DELTA COLUMN HIGHLIGHT ──
         requestAnimationFrame(function() {
@@ -1342,6 +1346,10 @@ return { barcode: item.barcode, packQty, autoDivFactor,
                 if (n === null || n <= 0) return;
                 if (n > threshold) {
                     vObj.val = roundPrice(n / factor);
+                    // Bug fix: persist the manual division so re-rendered cells
+                    // pass the correct divFactor to priceClick (was always 1 before)
+                    vObj._autoDiv = true;
+                    vObj._autoDivFactor = factor;
                     changed = true;
                 }
             });
@@ -2625,8 +2633,28 @@ function buildCsvAndSkipped() {
   const bcCol = findBarcodeCol(indices);
   if (bcCol === -1) return { ok: false, error: "Не найдена колонка штрихкода (название должно содержать «штрихкод» / barcode / ean)." };
 
+  // Find name column index for duplicate-barcode suffix
+  const nameColIdx = (function() {
+    for (const ci of indices) {
+      const n = normHeader(selectedColumns.get(ci) || "");
+      if (/наименование|название|name|товар|product/.test(n)) return ci;
+    }
+    return -1;
+  })();
+
   let csv = "\uFEFF" + indices.map(i => esc_csv(selectedColumns.get(i)||"")).join(",") + "\n";
   const skipped = [];
+
+  // Pre-scan to count barcode occurrences for index suffix
+  const barcodeCount = new Map();
+  for (let ri = startRowIndex; ri < tableData.length; ri++) {
+    const row = tableData[ri] || [];
+    const normBC = normalizeBarcode(row[bcCol]);
+    if (normBC && /^\d+$/.test(normBC)) {
+      barcodeCount.set(normBC, (barcodeCount.get(normBC) || 0) + 1);
+    }
+  }
+  const barcodeSeenIdx = new Map();
 
   for (let ri = startRowIndex; ri < tableData.length; ri++) {
     const row = tableData[ri] || [];
@@ -2638,9 +2666,20 @@ function buildCsvAndSkipped() {
       skipped.push({ rowIndex: ri, rowNumber: ri+1, rawBarcode: rawBCS, normalizedBarcode: normBC||"", reason: !rawBCS.trim() ? "Пустой штрихкод" : "Некорректный штрихкод" });
       continue;
     }
+
+    // Track occurrence index for this barcode
+    const seenIdx = (barcodeSeenIdx.get(normBC) || 0) + 1;
+    barcodeSeenIdx.set(normBC, seenIdx);
+    const isDup = barcodeCount.get(normBC) > 1;
+
     const vals = indices.map(ci => {
       if (ci === bcCol) return normBC;
       let v = row[ci] != null ? String(row[ci]).trim() : "";
+
+      // Append index suffix to name when barcode appears more than once
+      if (isDup && ci === nameColIdx && v !== "") {
+        v = v + " (" + seenIdx + ")";
+      }
 
       const colName = (selectedColumns.get(ci) || "").toLowerCase();
       const isStockCol = STOCK_COL_SYNONYMS.some(s => colName.includes(s));
@@ -7179,11 +7218,13 @@ document.addEventListener('click', function(e) {
 
   window.cqManualStep = function(dir) {
     var df = (_cartPending && _cartPending.divFactor > 1) ? _cartPending.divFactor : 1;
-    var step = df > 1 ? df : 1;
+    var isManualMode = _cartPending && !!_cartPending._manualInput;
+    // In manual mode always step by 1; in block mode step by block size
+    var step = (df > 1 && !isManualMode) ? df : 1;
     var inp2 = document.getElementById('cartQtyInput');
     var cur = parseInt((inp2 ? inp2.value : '1'), 10) || 1;
-    var next = Math.max(step, cur + dir * step);
-    _cqSelectChip(next, false);
+    var next = Math.max(1, cur + dir * step);
+    _cqSelectChip(next, isManualMode);
   };
 
   // ---- price click handler ----
@@ -7200,7 +7241,7 @@ document.addEventListener('click', function(e) {
     // order mode: open qty dialog
     var col = null;
     if (typeof allColumns !== 'undefined') col = allColumns.find(function(c){ return c.key === colKey; });
-    var supplierName = col ? (col.fileName || colKey) : colKey;
+    var supplierName = col ? (col.displayName || col.fileName || colKey) : colKey;
     // get item name + detect pack size for items without explicit divFactor
     var itemName = '';
     var _detectedPack = { confidence: 'none', qty: 1, candidates: [], source: 'none' };
@@ -7228,8 +7269,16 @@ document.addEventListener('click', function(e) {
     // check if already in cart -> pre-fill qty (show in units, i.e. blocks * factor)
     var existQty = 0;
     if (cart[supplierName]) {
-      var ex = cart[supplierName].items.find(function(i){ return i.barcode === supplierBarcode; });
-      if (ex) existQty = divFactor > 1 ? ex.qty * divFactor : ex.qty;
+      // Fix: match by barcode AND colKey — same product can have multiple price columns
+      var ex = cart[supplierName].items.find(function(i){ return i.barcode === supplierBarcode && i.colKey === colKey; });
+      if (ex) {
+        // Fix: use the STORED divFactor of the existing item, not the freshly detected one.
+        // If the item was added with manual input (storedDivFactor=undefined), exDf=1 and
+        // existQty = ex.qty (raw units). Using the newly re-detected divFactor here would
+        // multiply raw units by block size again, showing e.g. 500 instead of 50.
+        var exDf = (ex.divFactor && ex.divFactor > 1) ? ex.divFactor : 1;
+        existQty = ex.qty * exDf;
+      }
     }
     document.getElementById('cqSupplier').textContent = supplierName;
     document.getElementById('cqName').textContent = itemName || supplierBarcode;
@@ -7329,6 +7378,7 @@ document.addEventListener('click', function(e) {
   };
   function _doAddToCart(qtyInput) {
     var p = _cartPending;
+    if (!p) return; // safety guard — should not happen but prevents silent freeze
     var divFactor = p.divFactor || 1;
     var isManual = !!p._manualInput;
     var qtyToStore, storedDivFactor;
@@ -7340,24 +7390,33 @@ document.addEventListener('click', function(e) {
       storedDivFactor = divFactor;
     }
     if (!cart[p.supplierName]) cart[p.supplierName] = { items: [] };
-    var ex = cart[p.supplierName].items.find(function(i){ return i.barcode === p.supplierBarcode; });
+    // Fix: match by BOTH barcode and colKey so the same product with two price columns
+    // (e.g. нал/безнал) creates two independent cart lines instead of overwriting each other.
+    var ex = cart[p.supplierName].items.find(function(i){ return i.barcode === p.supplierBarcode && i.colKey === p.colKey; });
     if (ex) {
       ex.qty = qtyToStore;
       ex.price = p.priceDisplay;
-      ex.colKey = p.colKey;
       ex.divFactor = storedDivFactor;
       ex.mainBarcode = p.mainBarcode || p.supplierBarcode;
     } else {
       cart[p.supplierName].items.push({ barcode: p.supplierBarcode, mainBarcode: p.mainBarcode || p.supplierBarcode, name: p.itemName, price: p.priceDisplay, colKey: p.colKey, qty: qtyToStore, divFactor: storedDivFactor });
     }
+    // Bug fix: save scroll BEFORE any DOM changes (closeCartQtyModal / mvsRender
+    // can trigger reflow that resets scrollTop in some browsers)
+    var _tw = document.getElementById('mainTableWrap');
+    var _savedScroll = _tw ? _tw.scrollTop : 0;
     saveCart();
     updateCartBadge();
     closeCartQtyModal();
     if (typeof _mvsRenderVisible === 'function') {
-      var _tw = document.getElementById('mainTableWrap');
-      var _savedScroll = _tw ? _tw.scrollTop : 0;
       _mvsRenderVisible();
-      if (_tw && _savedScroll > 0) requestAnimationFrame(function(){ _tw.scrollTop = _savedScroll; });
+      // Double-rAF: first frame lets browser apply the innerHTML reflow,
+      // second frame restores scroll reliably after the reflow settles
+      if (_tw && _savedScroll > 0) {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { _tw.scrollTop = _savedScroll; });
+        });
+      }
     }
     var toastMsg = '✅ Добавлено: ' + (p.itemName || p.supplierBarcode);
     if (!isManual && storedDivFactor > 1) {
@@ -7378,6 +7437,11 @@ document.addEventListener('click', function(e) {
 
   // ---- cart modal ----
   window.openCartModal = function() {
+    // Don't open an empty cart — nothing useful to show
+    if (!Object.keys(cart).length || !Object.values(cart).some(function(s){ return s.items.length; })) {
+      if (typeof showToast === 'function') showToast('Корзина пуста', 'warn');
+      return;
+    }
     renderCartModal();
     // show "свой прайс" button only if my price is loaded
     var hasMyPrice = !!(window._pmApp && window._pmApp.myPriceData);
@@ -7729,7 +7793,13 @@ document.addEventListener('click', function(e) {
       if (!cart[supName].items.length) delete cart[supName];
       saveCart();
       updateCartBadge();
-      renderCartModal();
+      // If cart is now empty — close modal instead of showing empty message
+      if (!Object.keys(cart).length) {
+        closeCartModal();
+        if (typeof showToast === 'function') showToast('Корзина очищена', 'ok');
+      } else {
+        renderCartModal();
+      }
       if (typeof _mvsRenderVisible === 'function') _mvsRenderVisible();
     }
   };
