@@ -3946,10 +3946,7 @@ function mcbFillFromPair(name1, name2, src1, src2) {
       if (getFieldSet('mcbSyns').has(w)) return `«${w}» уже в кросскодах`;
       if (getFieldSet('mcbAnti').has(w)) return `«${w}» уже в антонимах`;
 
-      for (const [key, val] of Object.entries(_brandDB || {})) {
-        if ((val.synonyms || []).map(brandNormKey).includes(w) && key !== w)
-          return `«${w}» уже является кросскодом бренда «${key}»`;
-      }
+      // soft warn only — don't block
     }
 
     if (targetId === 'mcbSyns') {
@@ -3958,10 +3955,7 @@ function mcbFillFromPair(name1, name2, src1, src2) {
 
       if (getFieldSet('mcbAnti').has(w)) return `«${w}» уже в антонимах — конфликт`;
 
-      for (const [key, val] of Object.entries(_brandDB || {})) {
-        if ((val.antonyms || []).map(brandNormKey).includes(w))
-          return `«${w}» является антонимом бренда «${key}»`;
-      }
+      // soft warn only for cross-brand antonym — don't block
     }
 
     if (targetId === 'mcbAnti') {
@@ -3971,6 +3965,24 @@ function mcbFillFromPair(name1, name2, src1, src2) {
       if (getFieldSet('mcbSyns').has(w)) return `«${w}» уже в кросскодах — конфликт`;
     }
 
+    return null;
+  }
+
+  function warnAdd(word, targetId) {
+    const w = brandNormKey(word);
+    if (!w) return null;
+    if (targetId === 'mcbCanon') {
+      for (const [key, val] of Object.entries(_brandDB || {})) {
+        if ((val.synonyms || []).map(brandNormKey).includes(w) && key !== w)
+          return `«${w}» уже является кросскодом бренда «${key}»`;
+      }
+    }
+    if (targetId === 'mcbSyns') {
+      for (const [key, val] of Object.entries(_brandDB || {})) {
+        if ((val.antonyms || []).map(brandNormKey).includes(w))
+          return `«${w}» является антонимом бренда «${key}»`;
+      }
+    }
     return null;
   }
 
@@ -4008,7 +4020,9 @@ function mcbFillFromPair(name1, name2, src1, src2) {
           }
           parts.push(w);
           inp.value = parts.join(', ');
-          setStatus('');
+          // soft warn — show but don't block
+          const warn = warnAdd(w, targetInputId);
+          setStatus(warn ? '⚠ ' + warn : '', !!warn);
         }
         mcbMarkUsedPills();
       });
@@ -5576,6 +5590,12 @@ function brandOpenAddModal() {
   if (errEl) { errEl.style.display='none'; errEl.textContent=''; }
   const hintEl = document.getElementById('brNCanonExistHint');
   if (hintEl) { hintEl.style.display='none'; hintEl.innerHTML=''; }
+  // ensure spacing between form blocks
+  const modal = document.getElementById('brandAddModal');
+  if (modal) {
+    const fields = modal.querySelectorAll('.modal-field');
+    fields.forEach((f, i) => { if (i > 0) f.style.marginTop = '14px'; });
+  }
   document.getElementById('brandAddModal').style.display = 'flex';
   setTimeout(() => { const el=document.getElementById('brNCanon'); if(el) el.focus(); }, 50);
 }
