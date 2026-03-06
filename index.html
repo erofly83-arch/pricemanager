@@ -117,7 +117,7 @@
 
   <div class="sidebar-footer">
     <div id="unifiedUnsaved" class="unified-unsaved" title="Есть несохранённые изменения — скачайте файл памяти, чтобы не потерять данные">
-      <button class="btn unified-unsaved-save-btn" onclick="downloadCurrentSynonyms()" title="Скачать файл памяти (JSON)">💾 Сохранить</button>
+      <button class="btn unified-unsaved-save-btn" onclick="downloadCurrentSynonyms()" title="Скачать файл памяти (JSON)"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Сохранить</button>
       <span class="unified-unsaved-hint">Не забудьте сохранить</span>
     </div>
     <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
@@ -608,9 +608,9 @@
       <button id="minPriceBtn" class="btn btn-secondary" disabled title="Подсветить минимальную цену в каждой строке (нал + безнал + мой прайс)"><span class="icon">⬇</span> Мин. цена</button>
     </div>
     <div class="controls-group export-group">
-      <button id="exportMyPriceBtn" class="btn btn-success" disabled title="Мой прайс Excel"><span class="icon">💾</span> Мой прайс</button>
-      <button id="exportAllBtn" class="btn btn-success" disabled title="Все данные Excel"><span class="icon">💾</span> Всё</button>
-      <button id="exportCurrentBtn" class="btn btn-success" disabled title="Текущий вид Excel"><span class="icon">💾</span> Текущий вид</button>
+      <button id="exportMyPriceBtn" class="btn btn-success" disabled title="Мой прайс Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Мой прайс</button>
+      <button id="exportAllBtn" class="btn btn-success" disabled title="Все данные Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Всё</button>
+      <button id="exportCurrentBtn" class="btn btn-success" disabled title="Текущий вид Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Текущий вид</button>
     </div>
     <div class="controls-group danger-group">
       <button id="clearBtn" class="btn btn-danger" disabled title="Сбросить все данные"><span class="icon">🗑️</span> Сбросить всё</button>
@@ -792,15 +792,15 @@
         <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;">
           <div style="display:flex;flex-direction:column;gap:8px;">
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><span class="icon">💾</span> Мой прайс</button>
+              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Мой прайс</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Выгружает только ваш прайс с ценами поставщиков по каждой позиции — удобно для сводки по вашему ассортименту.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><span class="icon">💾</span> Всё</button>
+              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Всё</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Полный экспорт таблицы — все товары из всех загруженных файлов, включая позиции поставщиков, которых нет в вашем прайсе.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><span class="icon">💾</span> Текущий вид</button>
+              <button class="btn btn-success" disabled style="min-width:175px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Текущий вид</button>
               <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Скачивает только то, что сейчас отображается на экране — с учётом активных фильтров, поиска и категории. Идеально для выгрузки конкретной выборки.</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
@@ -946,7 +946,7 @@
             <div class="dash-instr-card-body"><b style="color:var(--green);">≥80%</b> — высокие совпадения, скорее всего один товар. <b style="color:var(--amber);">55–79%</b> — средние, требуют внимания. Начните с высоких — там меньше всего ошибок.</div>
           </div>
           <div class="dash-instr-card" style="border-left:3px solid var(--accent);">
-            <div class="dash-instr-card-header"><span style="font-size:15px;">💾</span><span class="dash-instr-card-title">Накапливаемая база</span></div>
+            <div class="dash-instr-card-header"><span style="display:inline-flex;align-items:center;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#3B6FD4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg></span><span class="dash-instr-card-title">Накапливаемая база</span></div>
             <div class="dash-instr-card-body">Подтверждённые связи сохраняются в базе штрихкодов и в файле-памяти. При следующей загрузке все кросскоды применяются автоматически — без повторного поиска.</div>
           </div>
         </div>
@@ -1031,7 +1031,7 @@
   <!-- Barcodes subtab -->
   <div class="syn-subtab-pane active" id="subpane-barcodes">
     <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:6px 0 8px;border-bottom:1px solid var(--border);margin-bottom:4px;">
-      <button class="btn btn-success" id="jeExportXlsxBtn" disabled title="Экспорт в Excel">💾 Экспорт Excel</button>
+      <button class="btn btn-success" id="jeExportXlsxBtn" disabled title="Экспорт в Excel"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Экспорт Excel</button>
       <button class="btn" id="jeImportXlsxBtn">📥 Импорт Excel</button>
       <input type="file" id="jeXlsxFileIn" accept=".xlsx,.xls" style="display:none;">
       <div style="width:1px;height:22px;background:var(--border);margin:0 2px;"></div>
@@ -1097,7 +1097,7 @@
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Панель инструментов</div>
             <div style="display:flex;flex-direction:column;gap:8px;">
               <div style="display:flex;align-items:center;gap:10px;">
-                <button class="btn btn-success" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;">💾 Экспорт Excel</button>
+                <button class="btn btn-success" disabled style="min-width:200px;justify-content:flex-start;pointer-events:none;opacity:1;flex-shrink:0;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Экспорт Excel</button>
                 <span style="font-size:var(--fz-sm);color:var(--text-secondary);line-height:1.5;">Выгружает базу штрихкодов в таблицу Excel для просмотра или редактирования вне приложения.</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
@@ -1429,7 +1429,7 @@
     </div>
     <div id="mcFooter" class="modal-footer" style="position:sticky;bottom:0;">
       <button onclick="closeMatchModal()" class="btn">Отмена</button>
-      <button id="mcbSaveBtn" class="btn btn-success" style="display:none;">💾 Сохранить бренд</button>
+      <button id="mcbSaveBtn" class="btn btn-success" style="display:none;"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Сохранить бренд</button>
       <button id="mcOkBtn" onclick="confirmMatchAction()" class="btn btn-success">Подтвердить</button>
     </div>
   </div>
@@ -1724,7 +1724,7 @@
       <div class="cart-modal-actions">
         <button class="btn" id="cartMyPriceBtn" onclick="applyMyPriceToCart()" style="display:none;background:#EFF6FF;border-color:#3B6FD4;color:#1E3A5F;font-weight:600;" title="Подставить наименования и штрихкоды из вашего прайс-листа">🏷️ Свой прайс</button>
         <button class="btn" id="cartMyPriceCancelBtn" onclick="cancelMyPriceFromCart()" style="display:none;background:#FEF2F2;border-color:#FCA5A5;color:#991B1B;" title="Убрать замену на мой прайс">✕ Сбросить мой прайс</button>
-        <button class="btn btn-success" onclick="downloadCartExcel()"><span>💾</span> Скачать Excel</button>
+        <button class="btn btn-success" onclick="downloadCartExcel()"><svg style="width:13px;height:13px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Скачать Excel</button>
         <button class="btn btn-danger" onclick="clearCart()">🗑 Очистить</button>
         <button class="modal-close-x" onclick="closeCartModal()">✕</button>
       </div>
@@ -1790,7 +1790,7 @@
 
     <!-- FOOTER -->
     <div class="cem-footer">
-      <span class="cem-footer-note">💾 Сохраняется в файл памяти JSON · Синонимы подключаются автоматически из базы брендов</span>
+      <span class="cem-footer-note"><svg style="width:13px;height:13px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Сохраняется в файл памяти JSON · Синонимы подключаются автоматически из базы брендов</span>
       <button onclick="document.getElementById('catExclModal').style.display='none'" class="btn">Закрыть</button>
     </div>
 
