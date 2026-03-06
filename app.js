@@ -1302,11 +1302,7 @@ return { barcode: item.barcode, packQty, autoDivFactor,
         _mvsRenderVisible();
 
         if (preserveScroll && _prevScroll > 0) {
-            // Double-rAF: first frame lets the browser apply the reflow from
-            // innerHTML changes, second frame restores scroll after it settles
-            requestAnimationFrame(function() {
-                requestAnimationFrame(function() { wrap.scrollTop = _prevScroll; });
-            });
+            requestAnimationFrame(() => { wrap.scrollTop = _prevScroll; });
         }
         // ── DELTA COLUMN HIGHLIGHT ──
         requestAnimationFrame(function() {
@@ -1346,10 +1342,6 @@ return { barcode: item.barcode, packQty, autoDivFactor,
                 if (n === null || n <= 0) return;
                 if (n > threshold) {
                     vObj.val = roundPrice(n / factor);
-                    // Bug fix: persist the manual division so re-rendered cells
-                    // pass the correct divFactor to priceClick (was always 1 before)
-                    vObj._autoDiv = true;
-                    vObj._autoDivFactor = factor;
                     changed = true;
                 }
             });
@@ -7358,23 +7350,14 @@ document.addEventListener('click', function(e) {
     } else {
       cart[p.supplierName].items.push({ barcode: p.supplierBarcode, mainBarcode: p.mainBarcode || p.supplierBarcode, name: p.itemName, price: p.priceDisplay, colKey: p.colKey, qty: qtyToStore, divFactor: storedDivFactor });
     }
-    // Bug fix: save scroll BEFORE any DOM changes (closeCartQtyModal / mvsRender
-    // can trigger reflow that resets scrollTop in some browsers)
-    var _tw = document.getElementById('mainTableWrap');
-    var _savedScroll = _tw ? _tw.scrollTop : 0;
     saveCart();
     updateCartBadge();
     closeCartQtyModal();
     if (typeof _mvsRenderVisible === 'function') {
+      var _tw = document.getElementById('mainTableWrap');
+      var _savedScroll = _tw ? _tw.scrollTop : 0;
       _mvsRenderVisible();
-      // Double-rAF: first frame lets browser apply the innerHTML reflow,
-      // second frame restores scroll reliably after the reflow settles
-      if (_tw && _savedScroll > 0) {
-        requestAnimationFrame(function() {
-          requestAnimationFrame(function() { _tw.scrollTop = _savedScroll; });
-        });
-      }
-    }
+      if (_tw && _savedScroll > 0) requestAnimationFrame(function(){ _tw.scrollTop = _savedScroll; });
     }
     var toastMsg = '✅ Добавлено: ' + (p.itemName || p.supplierBarcode);
     if (!isManual && storedDivFactor > 1) {
